@@ -1,20 +1,14 @@
-import {
-  BadQueryParamError,
-  ClientError,
-  ConflictError,
-  getFormData,
-  getFormEntry,
-  getSessionFromRequest,
-  route,
-  sendVerificationEmail,
-  setSession,
-} from "app/api";
 import * as account from "app/api/account";
-import { db, User } from "app/api/db";
 import { isEmailValid, isPasswordValid, isUsernameValid } from "app/constants";
 import bcrypt from "bcrypt";
+import { db, users, utils } from "db";
+import { sendVerificationEmail } from "db/utils/email";
+import { BadQueryParamError, ClientError, ConflictError } from "db/utils/errors";
+import type { AuthenticatedUser } from "db/utils/pub";
+import { getFormData, getFormEntry, route } from "db/utils/route";
+import { getSessionFromRequest, setSession } from "db/utils/session";
+import { eq, sql } from "drizzle-orm";
 import { type NextRequest, NextResponse } from "next/server";
-import { Raw } from "typeorm";
 
 export const PUT = route(async (req: NextRequest) => {
   const existingSession = getSessionFromRequest(req);
@@ -31,31 +25,31 @@ export const PUT = route(async (req: NextRequest) => {
   if (!isPasswordValid(password))
     throw new ClientError("Password must be at least 8 characters long");
 
-  const userRepo = db().getRepository(User);
-  const userByName = await userRepo.findOneBy({
-    name: Raw(alias => `LOWER(${alias}) like LOWER(:value)`, { value: `%${name}%` }),
+  const userByName = await db.query.users.findFirst({
+    where: sql`lower(user.name) like lower(${name})`,
   });
   if (userByName) throw new ConflictError("Username already taken");
 
-  const userByEmail = await userRepo.findOneBy({
-    email: Raw(alias => `LOWER(${alias}) like LOWER(:value)`, { value: `%${email}%` }),
+  const userByEmail = await db.query.users.findFirst({
+    where: sql`lower(user.email) like lower(${email})`,
   });
   if (userByEmail) throw new ConflictError("Email already taken");
 
-  const newUser = new User();
-  newUser.name = name;
-  newUser.email = email;
-  newUser.password = bcrypt.hashSync(password, bcrypt.genSaltSync());
+  const newUser = {
+    name,
+    email,
+    password: bcrypt.hashSync(password, bcrypt.genSaltSync()),
+    image: image && (await account.saveImage(name, image)),
+  };
 
-  if (image) await account.saveImage(newUser, image);
-
-  await userRepo.save(newUser);
+  await db.insert(users).values(newUser);
+  const user = (await db.query.users.findFirst({ where: eq(users.name, name) }))!;
 
   // Log the user in and send the verification email
-  const authedUser = newUser.publicAuthenticated();
+  const authedUser = utils.pub.fromUser(user, true) as AuthenticatedUser;
   const response = NextResponse.json(authedUser, { status: 201 });
   setSession(response, authedUser);
-  await sendVerificationEmail(newUser);
+  await sendVerificationEmail(user);
 
   return response;
 });

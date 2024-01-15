@@ -1,20 +1,18 @@
-import { db, User } from "app/api/db";
 import bcrypt from "bcrypt";
-
-import { saveImageFile } from "../(utils)/assets";
+import type { User } from "db";
+import { db, users } from "db";
+import { saveImageFile } from "db/utils/assets";
+import { eq, or } from "drizzle-orm";
 
 export const verify = async (username: string, password: string): Promise<User | undefined> => {
-  const user = await db()
-    .getRepository(User)
-    .createQueryBuilder("user")
-    .where("user.name = :name", { name: username })
-    .orWhere("user.email = :email", { email: username })
-    .getOne();
+  const user = await db.query.users.findFirst({
+    where: or(eq(users.name, username), eq(users.email, username)),
+  });
 
   if (user && bcrypt.compareSync(password, user.password)) return user;
 };
 
-export const saveImage = async (user: User, file: string | Blob) => {
-  (await saveImageFile(file)).toFile(`public/assets/users/${user.name}.png`);
-  user.image = `/assets/users/${user.name}.png`;
+export const saveImage = async (userName: string, file: string | Blob): Promise<string> => {
+  (await saveImageFile(file)).toFile(`public/assets/users/${userName}.png`);
+  return `/assets/users/${userName}.png`;
 };

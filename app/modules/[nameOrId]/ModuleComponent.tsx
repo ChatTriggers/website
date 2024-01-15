@@ -1,7 +1,7 @@
 "use client";
 
 import { Box } from "@mui/joy";
-import type { AuthenticatedUser, PublicModule } from "app/api/db";
+import type { AuthenticatedUser, PublicModule } from "db/utils/pub";
 
 import Body from "../Body";
 import Header from "../Header";
@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function Module({ module, user }: Props) {
-  const isOwner = module.owner.id === user?.id && user?.email_verified === true;
+  const isOwner = !!user && module.user?.id === user?.id && user?.emailVerified === true;
 
   return (
     <Box my={{ md: 5 }} width="100%">

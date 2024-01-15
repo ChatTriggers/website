@@ -1,6 +1,5 @@
+import { ClientError } from "db/utils/errors";
 import sharp from "sharp";
-
-import { ClientError } from "./errors";
 
 const MAX_IMAGE_SIZE = 1000;
 

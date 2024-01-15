@@ -28,7 +28,7 @@ import {
   Typography,
 } from "@mui/joy";
 import { switchMode } from "app/(utils)/layout";
-import type { PublicModule, PublicRelease } from "app/api/db";
+import type { PublicModule, PublicRelease } from "db/utils/pub";
 import Markdown from "marked-react";
 import type { MouseEvent, MouseEventHandler } from "react";
 import { useState } from "react";
@@ -39,7 +39,7 @@ interface ReleaseCardProps {
   module: PublicModule;
   release: PublicRelease;
   ownerView: boolean;
-  onBrowseCode(releaseId: string): Promise<void>;
+  onBrowseCode(releaseId: number): Promise<void>;
 }
 
 function ReleaseCard({ module, release, ownerView, onBrowseCode }: ReleaseCardProps) {
@@ -93,9 +93,9 @@ function ReleaseCard({ module, release, ownerView, onBrowseCode }: ReleaseCardPr
           )}
           <Stack width={170} flexDirection="row">
             <Typography level="title-lg" mr={1}>
-              v{release.release_version}
+              v{release.releaseVersion}
             </Typography>
-            <Typography>for ct {release.mod_version}</Typography>
+            <Typography>for ct {release.modVersion}</Typography>
           </Stack>
           <Box width={100} display={{ mobile: "none", tablet: "flex" }} flexDirection="row" mr={2}>
             <Download />
@@ -104,7 +104,7 @@ function ReleaseCard({ module, release, ownerView, onBrowseCode }: ReleaseCardPr
           <Box width={180} display={{ mobile: "none", tablet: "flex" }} flexDirection="row">
             <EventNote />
             <Typography ml={1} level="body-sm">
-              Created: {new Date(release.created_at).toLocaleDateString()}
+              Created: {new Date(release.createdAt).toLocaleDateString()}
             </Typography>
           </Box>
           <Button
@@ -143,7 +143,7 @@ function ReleaseCard({ module, release, ownerView, onBrowseCode }: ReleaseCardPr
       <Modal open={deleteModalShowing} onClose={() => setDeleteModalShowing(false)}>
         <ModalDialog role="alertdialog">
           <DialogTitle>
-            Are you sure you want to delete release v{release.release_version}
+            Are you sure you want to delete release v{release.releaseVersion}
           </DialogTitle>
           <DialogActions>
             <Button variant="solid" color="danger" onClick={deleteRelease} loading={deleteLoading}>
@@ -167,8 +167,9 @@ interface BodyProps {
 export default function Body({ ownerView, module }: BodyProps) {
   const [editorOpen, setEditorOpen] = useState(false);
   const [files, setFiles] = useState<Record<string, string>>({});
+  const hasReleases = module.releases && module.releases.length > 0;
 
-  async function onBrowseCode(releaseId: string): Promise<void> {
+  async function onBrowseCode(releaseId: number): Promise<void> {
     const res = await fetch(`/api/modules/${module.name}/releases/${releaseId}/scripts`);
 
     // TODO: Show error
@@ -183,16 +184,16 @@ export default function Body({ ownerView, module }: BodyProps) {
       <Tabs variant="soft" sx={{ marginTop: 3 }}>
         <TabList>
           <Tab>Description</Tab>
-          {module.releases.length > 0 && <Tab>{module.releases.length} Releases</Tab>}
+          {hasReleases && <Tab>{module.releases!.length} Releases</Tab>}
         </TabList>
         <TabPanel value={0}>
           {module.description && <Markdown>{module.description}</Markdown>}
         </TabPanel>
-        {module.releases.length > 0 && (
+        {hasReleases && (
           <TabPanel value={1}>
             <AccordionGroup variant="plain" transition="0.2s ease">
-              {module.releases
-                .toSorted((a, b) => b.release_version.localeCompare(a.release_version))
+              {module
+                .releases!.toSorted((a, b) => b.releaseVersion.localeCompare(a.releaseVersion))
                 .map(release => (
                   <ReleaseCard
                     key={release.id}

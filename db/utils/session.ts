@@ -1,4 +1,5 @@
-import type { AuthenticatedUser, Rank } from "app/api/db";
+import type { Rank } from "db";
+import type { AuthenticatedUser } from "db/utils/pub";
 import jwt from "jsonwebtoken";
 import type { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 import type { RequestCookies } from "next/dist/server/web/spec-extension/cookies";
@@ -7,7 +8,7 @@ import type { NextRequest, NextResponse } from "next/server";
 const JWT_ISSUER = "ChatTriggers";
 
 export interface Session {
-  id: string;
+  id: number;
   name: string;
   createdAt: number;
   email: string;
@@ -68,7 +69,7 @@ export function setSession(res: NextResponse, user: AuthenticatedUser | null) {
         name: user.name,
         email: user.email,
         rank: user.rank,
-        createdAt: user.created_at,
+        createdAt: user.createdAt,
       },
     }),
     secure: process.env.NODE_ENV === "production",

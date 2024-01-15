@@ -1,4 +1,4 @@
-import { getTags } from "app/api/tags";
+import { getTags } from "db/utils/modules";
 
 import CreateModuleComponent from "./CreateModuleComponent";
 

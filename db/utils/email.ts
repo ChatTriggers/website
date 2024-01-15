@@ -1,8 +1,8 @@
-import { Email, User } from "app/api/db";
-import { db } from "app/api/db";
+import type { User } from "db";
+import { db, emails, users } from "db";
+import { and, eq, inArray } from "drizzle-orm";
 import { EmailParams } from "mailersend";
 import { MailerSend, Recipient, Sender } from "mailersend";
-import { In } from "typeorm";
 import { v4 as uuid } from "uuid";
 
 const mailerSend = new MailerSend({
@@ -12,12 +12,9 @@ const mailerSend = new MailerSend({
 const sentFrom = new Sender("no-reply@chattriggers.com", "ChatTriggers");
 
 export const sendEmail = async (recipient: string, params: EmailParams) => {
-  const existingBounceOrComplaint = await db()
-    .getRepository(Email)
-    .findOneBy({
-      recipient,
-      type: In(["bounce", "complaint"]),
-    });
+  const existingBounceOrComplaint = await db.query.emails.findFirst({
+    where: and(eq(emails.recipient, recipient), inArray(emails.type, ["bounce", "complaint"])),
+  });
 
   if (existingBounceOrComplaint) return;
 
@@ -27,7 +24,10 @@ export const sendEmail = async (recipient: string, params: EmailParams) => {
 
 export const sendVerificationEmail = async (user: User) => {
   user.verificationToken = uuid();
-  await db().getRepository(User).save(user);
+  await db
+    .update(users)
+    .set({ verificationToken: user.verificationToken })
+    .where(eq(users.id, user.id));
 
   const params = new EmailParams()
     .setTemplateId(process.env.MAILERSEND_VERIFICATION_TEMPLATE_ID!)

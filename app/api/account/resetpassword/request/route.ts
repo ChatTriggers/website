@@ -1,13 +1,10 @@
-import {
-  BadQueryParamError,
-  EmailParams,
-  getFormData,
-  getFormEntry,
-  route,
-  sendEmail,
-} from "app/api/(utils)";
-import { db, User } from "app/api/db";
 import { isEmailValid } from "app/constants";
+import type { User } from "db";
+import { db, users } from "db";
+import { EmailParams, sendEmail } from "db/utils/email";
+import { BadQueryParamError } from "db/utils/errors";
+import { getFormData, getFormEntry, route } from "db/utils/route";
+import { eq } from "drizzle-orm";
 import type { NextRequest } from "next/server";
 import { v4 as uuid } from "uuid";
 
@@ -17,7 +14,7 @@ export const POST = route(async (req: NextRequest) => {
 
   if (!isEmailValid(email)) throw new BadQueryParamError("email", email);
 
-  const user = await db().getRepository(User).findOneBy({ email });
+  const user = await db.query.users.findFirst({ where: eq(users.email, email) });
   if (!user) {
     // Do not return an error since that would provide information to the user
     return new Response();
@@ -28,8 +25,8 @@ export const POST = route(async (req: NextRequest) => {
 });
 
 const sendPasswordResetEmail = async (user: User) => {
-  user.passwordResetToken = uuid();
-  await db().getRepository(User).save(user);
+  const token = uuid();
+  await db.update(users).set({ passwordResetToken: token }).where(eq(users.id, user.id));
 
   const params = new EmailParams()
     .setTemplateId(process.env.MAILERSEND_PASSWORD_RESET_TEMPLATE_ID!)

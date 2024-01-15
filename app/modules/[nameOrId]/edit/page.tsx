@@ -1,7 +1,6 @@
-import type { SlugProps } from "app/(utils)/next";
-import { getSessionFromCookies } from "app/api";
-import * as modules from "app/api/modules";
-import { getTags } from "app/api/tags";
+import { utils } from "db";
+import type { SlugProps } from "db/utils/route";
+import { getSessionFromCookies } from "db/utils/session";
 import { cookies } from "next/headers";
 import { notFound } from "next/navigation";
 
@@ -9,11 +8,16 @@ import EditModuleComponent from "./EditModuleComponent";
 
 export default async function Page({ params }: SlugProps<"nameOrId">) {
   const user = getSessionFromCookies(cookies());
-  const targetModule = (await modules.getOne(params.nameOrId)) ?? notFound();
+  const targetModule = (await utils.modules.getOne(params.nameOrId)) ?? notFound();
 
   if (!user || user.id !== targetModule.user.id) notFound();
 
-  const tags = await getTags();
+  const tags = await utils.modules.getTags();
 
-  return <EditModuleComponent targetModule={targetModule.public()} availableTags={[...tags]} />;
+  return (
+    <EditModuleComponent
+      targetModule={utils.pub.fromModule(targetModule)}
+      availableTags={[...tags]}
+    />
+  );
 }

@@ -1,11 +1,14 @@
-import { getSessionFromRequest, NotAuthenticatedError, route, ServerError } from "app/api";
-import { db, User } from "app/api/db";
+import { db, users, utils } from "db";
+import { NotAuthenticatedError, ServerError } from "db/utils/errors";
+import { route } from "db/utils/route";
+import { getSessionFromRequest } from "db/utils/session";
+import { eq } from "drizzle-orm";
 import type { NextRequest } from "next/server";
 
 export const GET = route(async (req: NextRequest) => {
-  const user = getSessionFromRequest(req);
-  if (!user) throw new NotAuthenticatedError();
-  const dbUser = await db().getRepository(User).findOneBy({ id: user.id });
-  if (!dbUser) throw new ServerError(`Failed to find user with it ${user.id}`);
-  return Response.json(dbUser.publicAuthenticated());
+  const session = getSessionFromRequest(req);
+  if (!session) throw new NotAuthenticatedError();
+  const user = await db.query.users.findFirst({ where: eq(users.id, session.id) });
+  if (!user) throw new ServerError(`Failed to find session with it ${session.id}`);
+  return Response.json(utils.pub.fromUser(user, session.id === user.id));
 });

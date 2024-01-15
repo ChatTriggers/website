@@ -2,8 +2,8 @@
 
 import { Box, Grid, Sheet, Stack, Typography } from "@mui/joy";
 import { useMode } from "app/(utils)/layout";
-import type { PublicModule, PublicRelease } from "app/api/db";
 import CustomEditor, { filesFromZip } from "app/modules/CustomEditor";
+import type { PublicModule, PublicRelease } from "db/utils/pub";
 import Markdown from "marked-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -50,7 +50,7 @@ export default function VerifyComponent({ module, release, oldRelease }: Props) 
         <Stack spacing={2} alignItems="center" width="100%">
           <Box width="100%" display="flex" justifyContent="center" mb={2}>
             <Typography level="h3" sx={{ textAlign: "center" }}>
-              Verify release v{release.release_version} for module{" "}
+              Verify release v{release.releaseVersion} for module{" "}
               <Link href={`/modules/${module.name}`} target="_blank">
                 {module.name}
               </Link>
@@ -58,19 +58,17 @@ export default function VerifyComponent({ module, release, oldRelease }: Props) 
           </Box>
           <Grid container spacing={2} sx={{ width: { mobile: "100%", tablet: "70% " } }}>
             <Grid mobile={12} tablet={4}>
+              <Typography sx={{ textAlign: "center" }}>CT version: {release.modVersion}</Typography>
+            </Grid>
+            <Grid mobile={12} tablet={4}>
               <Typography sx={{ textAlign: "center" }}>
-                CT version: {release.mod_version}
+                MC version{release.gameVersions.length > 1 ? "s" : ""}:{" "}
+                {release.gameVersions.join(", ")}
               </Typography>
             </Grid>
             <Grid mobile={12} tablet={4}>
               <Typography sx={{ textAlign: "center" }}>
-                MC version{release.game_versions.length > 1 ? "s" : ""}:{" "}
-                {release.game_versions.join(", ")}
-              </Typography>
-            </Grid>
-            <Grid mobile={12} tablet={4}>
-              <Typography sx={{ textAlign: "center" }}>
-                Created: {new Date(release.created_at).toLocaleDateString()}
+                Created: {new Date(release.createdAt).toLocaleDateString()}
               </Typography>
             </Grid>
           </Grid>

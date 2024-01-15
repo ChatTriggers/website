@@ -1,7 +1,9 @@
-import { ClientError, getFormData, getFormEntry, route } from "app/api/(utils)";
-import { db, User } from "app/api/db";
 import { isPasswordValid } from "app/constants";
 import bcrypt from "bcrypt";
+import { db, users } from "db";
+import { ClientError } from "db/utils/errors";
+import { getFormData, getFormEntry, route } from "db/utils/route";
+import { eq } from "drizzle-orm";
 import type { NextRequest } from "next/server";
 
 export const POST = route(async (req: NextRequest) => {
@@ -10,8 +12,7 @@ export const POST = route(async (req: NextRequest) => {
   const password = getFormEntry({ form, name: "password", type: "string" });
   const token = getFormEntry({ form, name: "token", type: "string" });
 
-  const userRepo = db().getRepository(User);
-  const user = await userRepo.findOneBy({ email });
+  const user = await db.query.users.findFirst({ where: eq(users.email, email) });
 
   // Intentionally vague errors so a user can't use this endpoint to query email addresses
   if (!user) throw new ClientError("Invalid email or token");
@@ -20,9 +21,13 @@ export const POST = route(async (req: NextRequest) => {
   if (!isPasswordValid(password))
     throw new ClientError("Password must be at least 8 character long");
 
-  user.password = await bcrypt.hash(password, await bcrypt.genSalt());
-  user.passwordResetToken = null;
-  await userRepo.save(user);
+  await db
+    .update(users)
+    .set({
+      password: await bcrypt.hash(password, await bcrypt.genSalt()),
+      passwordResetToken: null,
+    })
+    .where(eq(users.id, user.id));
 
   return new Response();
 });

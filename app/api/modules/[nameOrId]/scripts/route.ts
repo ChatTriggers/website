@@ -1,8 +1,9 @@
-import type { SlugProps } from "app/(utils)/next";
-import { BadQueryParamError, MissingQueryParamError, NotFoundError, route } from "app/api";
-import Version from "app/api/(utils)/Version";
-import * as modules from "app/api/modules";
-import { getScripts } from "app/api/modules/[nameOrId]/releases";
+import { utils } from "db";
+import { BadQueryParamError, MissingQueryParamError, NotFoundError } from "db/utils/errors";
+import { getScripts } from "db/utils/releases";
+import type { SlugProps } from "db/utils/route";
+import { route } from "db/utils/route";
+import Version from "db/utils/Version";
 import type { NextRequest } from "next/server";
 
 export const GET = route(async (req: NextRequest, { params }: SlugProps<"nameOrId">) => {
@@ -24,10 +25,10 @@ export const GET = route(async (req: NextRequest, { params }: SlugProps<"nameOrI
 
   if (!gameVersions || gameVersions.length === 0) throw new MissingQueryParamError("gameVersion");
 
-  const existingModule = await modules.getOne(params.nameOrId);
+  const existingModule = await utils.modules.getOne(params.nameOrId);
   if (!existingModule) throw new NotFoundError("Module not found");
 
-  const matchingRelease = await modules.findMatchingRelease(
+  const matchingRelease = await utils.releases.findMatchingRelease(
     existingModule,
     modVersion,
     gameVersions,

@@ -2,7 +2,7 @@
 
 import { Box, Stack } from "@mui/joy";
 import { AppBar } from "@mui/material";
-import type { AuthenticatedUser } from "app/api/db";
+import type { AuthenticatedUser } from "db/utils/pub";
 import { usePathname } from "next/navigation";
 import React from "react";
 

@@ -1,7 +1,18 @@
-import type { SlugProps } from "app/(utils)/next";
 import type { NextRequest } from "next/server";
 
 import { ApiError, ClientError, MissingFormEntryError } from "./errors";
+
+export interface SearchParamProps {
+  searchParams: {
+    [key: string]: string | string[] | undefined;
+  };
+}
+
+export interface SlugProps<T extends string = never> {
+  params: {
+    [C in T]: string;
+  };
+}
 
 type ApiHandler<T extends string> = (
   req: NextRequest,
@@ -107,15 +118,12 @@ export function cached<T>(timeoutMs: number, producer: () => Promise<T>): () => 
   let lastTime = 0;
   return async () => {
     const time = new Date().getTime();
+    console.log(`time = ${time}, lastTime = ${lastTime}, timeoutMs = ${timeoutMs}`);
     if (time - lastTime > timeoutMs) {
-      lastTime = time;
+      console.log("  Running");
       cachedData = await producer();
+      lastTime = time;
     }
     return cachedData!;
   };
 }
-
-export * from "./email";
-export * from "./errors";
-export * from "./session";
-export * from "./Version";

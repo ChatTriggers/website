@@ -1,8 +1,9 @@
-import type { SlugProps } from "app/(utils)/next";
-import { BadQueryParamError, MissingQueryParamError, NotFoundError, route } from "app/api";
-import Version from "app/api/(utils)/Version";
 import * as modules from "app/api/modules";
-import { getMetadata } from "app/api/modules/[nameOrId]/releases";
+import { BadQueryParamError, MissingQueryParamError, NotFoundError } from "db/utils/errors";
+import { getMetadata } from "db/utils/releases";
+import type { SlugProps } from "db/utils/route";
+import { route } from "db/utils/route";
+import Version from "db/utils/Version";
 import type { NextRequest } from "next/server";
 
 export const GET = route(async (req: NextRequest, { params }: SlugProps<"nameOrId">) => {

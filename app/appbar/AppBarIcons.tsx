@@ -20,9 +20,9 @@ import {
   Sheet,
   Typography,
 } from "@mui/joy";
+import type { AuthenticatedUser } from "db/utils/pub";
 import { useState } from "react";
 
-import type { AuthenticatedUser } from "../api/db";
 import ModeToggle from "./ModeToggle";
 
 interface Props {

@@ -1,35 +1,30 @@
-import type { SlugProps } from "app/(utils)/next";
+import type { ModuleWithRelations } from "db";
+import { db, releases, utils } from "db";
 import {
   BadQueryParamError,
   ClientError,
   ConflictError,
   ForbiddenError,
-  getFormData,
-  getFormEntry,
-  getSessionFromRequest,
   NotAuthenticatedError,
   NotFoundError,
-  route,
-} from "app/api";
-import { getAllowedVersions } from "app/api";
-import Version from "app/api/(utils)/Version";
-import { onReleaseCreated, onReleaseNeedsToBeVerified } from "app/api/(utils)/webhooks";
-import type { Module } from "app/api/db";
-import { db, Rank, Release } from "app/api/db";
-import * as modules from "app/api/modules";
+} from "db/utils/errors";
+import type { SlugProps } from "db/utils/route";
+import { getAllowedVersions, getFormData, getFormEntry, route } from "db/utils/route";
+import { getSessionFromRequest } from "db/utils/session";
+import Version from "db/utils/Version";
+import { and, eq } from "drizzle-orm";
 import * as fs from "fs/promises";
 import JSZip from "jszip";
 import type { NextRequest } from "next/server";
-import { v4 as uuid } from "uuid";
 
 export const PUT = route(async (req: NextRequest, { params }: SlugProps<"nameOrId">) => {
-  const sessionUser = getSessionFromRequest(req);
-  if (!sessionUser) throw new NotAuthenticatedError();
+  const session = getSessionFromRequest(req);
+  if (!session) throw new NotAuthenticatedError();
 
-  const existingModule = await modules.getOne(params.nameOrId, sessionUser);
-  if (!existingModule) throw new NotFoundError("Module not found");
+  const module_ = await utils.modules.getOne(params.nameOrId, session);
+  if (!module_) throw new NotFoundError("Module not found");
 
-  if (sessionUser.id !== existingModule.user.id && sessionUser.rank === Rank.DEFAULT)
+  if (session.id !== module_.user.id && session.rank === "default")
     throw new ForbiddenError("No permission");
 
   const form = await getFormData(req);
@@ -49,13 +44,8 @@ export const PUT = route(async (req: NextRequest, { params }: SlugProps<"nameOrI
     if (!allowedGameVersions.includes(str)) throw new BadQueryParamError("gameVersions", str);
   });
 
-  const releaseRepo = db().getRepository(Release);
-
-  const existingRelease = await releaseRepo.findOneBy({
-    module: {
-      id: existingModule.id,
-    },
-    release_version: releaseVersion,
+  const existingRelease = await db.query.releases.findFirst({
+    where: and(eq(releases.moduleId, module_.id), eq(releases.releaseVersion, releaseVersion)),
   });
 
   if (existingRelease)
@@ -63,28 +53,32 @@ export const PUT = route(async (req: NextRequest, { params }: SlugProps<"nameOrI
 
   const changelog = getFormEntry({ form, name: "changelog", type: "string", optional: true });
 
-  const release = new Release();
-  release.id = uuid();
-  release.module = existingModule;
-  release.release_version = releaseVersion;
-  release.mod_version = modVersion;
-  release.game_versions = gameVersions;
-  release.changelog = changelog ?? null;
-  release.verified = sessionUser.rank !== Rank.DEFAULT;
+  const release: typeof releases.$inferInsert = {
+    moduleId: module_.id,
+    releaseVersion: releaseVersion,
+    modVersion: modVersion,
+    gameVersions: gameVersions.join(","),
+    changelog: changelog ?? null,
+    verified: session.rank !== "default",
+  };
 
   const zipFile = getFormEntry({ form, name: "module", type: "file" });
-  await saveZipFile(existingModule, release, zipFile);
+  await saveZipFile(module_, release, zipFile);
 
-  if (!existingModule.hidden && release.verified) onReleaseCreated(existingModule, release);
+  if (!module_.hidden && release.verified) utils.webhooks.onReleaseCreated(module_, release);
 
-  if (!release.verified) await onReleaseNeedsToBeVerified(existingModule, release);
+  if (!release.verified) await utils.webhooks.onReleaseNeedsToBeVerified(module_, release);
 
-  releaseRepo.save(release);
+  await db.insert(releases).values(release);
 
   return new Response("Release created", { status: 201 });
 });
 
-async function saveZipFile(module: Module, release: Release, zipFile: File): Promise<void> {
+async function saveZipFile(
+  module: ModuleWithRelations,
+  release: typeof releases.$inferInsert,
+  zipFile: File,
+): Promise<void> {
   const releaseFolder = `storage/${module.name.toLowerCase()}/${release.id}`;
   await fs.mkdir(releaseFolder, { recursive: true });
 
@@ -108,10 +102,10 @@ async function saveZipFile(module: Module, release: Release, zipFile: File): Pro
     }
 
     metadata.name = module.name;
-    metadata.version = release.release_version;
-    metadata.tags = module.tags.length ? module.tags : undefined;
-    if (release.module.image) {
-      metadata.pictureLink = `${process.env.NEXT_PUBLIC_WEB_ROOT!}/${release.module.image}`;
+    metadata.version = release.releaseVersion;
+    metadata.tags = module.tags?.length ? module.tags : undefined;
+    if (module.image) {
+      metadata.pictureLink = `${process.env.NEXT_PUBLIC_WEB_ROOT!}/${module.image}`;
     } else {
       delete metadata.pictureLink;
     }

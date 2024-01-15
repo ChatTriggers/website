@@ -1,6 +1,6 @@
 "use client";
 
-import type { PublicModule } from "app/api/db";
+import type { PublicModule } from "db/utils/pub";
 
 import ModuleForm from "../../ModuleForm";
 

@@ -2,8 +2,7 @@
 
 import { Box, FormControl, FormLabel, Option, Select, Stack, Typography } from "@mui/joy";
 import { Pagination } from "@mui/material";
-import type { Sort } from "app/api/db";
-import type { ManyResponsePublic } from "app/api/modules";
+import type { ManyResponse, Sort } from "db/utils/modules";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -11,10 +10,7 @@ import Header from "./Header";
 
 export const MODULES_PER_PAGES = 50;
 
-export default function ModulesComponent({
-  modules,
-  meta: { total, offset, sort },
-}: ManyResponsePublic) {
+export default function ModulesComponent({ modules, meta: { total, offset, sort } }: ManyResponse) {
   const router = useRouter();
   const params = useSearchParams();
 

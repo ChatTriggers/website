@@ -1,4 +1,4 @@
-import { route } from "app/api";
+import { route } from "db/utils/route";
 
 import { signIn } from ".";
 

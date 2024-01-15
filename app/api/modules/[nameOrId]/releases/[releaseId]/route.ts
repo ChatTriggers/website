@@ -1,27 +1,31 @@
-import type { SlugProps } from "app/(utils)/next";
-import { ForbiddenError, getSessionFromRequest, NotFoundError, route } from "app/api";
-import { deleteReleaseVerificationMessage } from "app/api/(utils)/webhooks";
-import { db, Rank, Release } from "app/api/db";
-import * as modules from "app/api/modules";
+import { db, releases, utils } from "db";
+import { ForbiddenError, NotFoundError } from "db/utils/errors";
+import type { SlugProps } from "db/utils/route";
+import { route } from "db/utils/route";
+import { getSessionFromRequest } from "db/utils/session";
+import { deleteReleaseVerificationMessage } from "db/utils/webhooks";
+import { eq } from "drizzle-orm";
+import { notFound } from "next/navigation";
 import type { NextRequest } from "next/server";
 
 export const DELETE = route(
   async (req: NextRequest, { params }: SlugProps<"nameOrId" | "releaseId">) => {
-    const user = getSessionFromRequest(req);
-    if (!user) throw new ForbiddenError("No permission to delete this release");
+    const session = getSessionFromRequest(req);
+    if (!session) throw new ForbiddenError("No permission to delete this release");
 
-    const module_ = await modules.getOne(params.nameOrId as string, user);
+    const module_ = await utils.modules.getOne(params.nameOrId, session);
     if (!module_) throw new NotFoundError("Module not found");
 
-    if (module_.user.id !== user.id && user.rank === Rank.DEFAULT)
+    if (module_.user.id !== session.id && session.rank === "default")
       throw new ForbiddenError("No permission to delete this release");
 
-    const releaseRepo = await db().getRepository(Release);
-    const release = await releaseRepo.findOneBy({ id: params.releaseId });
-    if (!release) throw new NotFoundError("Release not found");
+    const releaseId = parseInt(params.releaseId);
+    if (isNaN(releaseId)) notFound();
+    const release = await db.query.releases.findFirst({ where: eq(releases.id, releaseId) });
+    if (!release) notFound();
 
     deleteReleaseVerificationMessage(release);
-    releaseRepo.delete(release.id);
+    await db.delete(releases).where(eq(releases.id, releaseId));
 
     return new Response("Deleted release");
   },

@@ -17,8 +17,8 @@ import {
 } from "@mui/joy";
 import colors from "@mui/joy/colors";
 import { switchMode, useMode } from "app/(utils)/layout";
-import Version from "app/api/(utils)/Version";
-import type { PublicModule } from "app/api/db";
+import type { PublicModule } from "db/utils/pub";
+import Version from "db/utils/Version";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -103,14 +103,12 @@ export default function UploadReleaseComponent({ module, validModVersions }: Pro
   const router = useRouter();
   const mode = useMode();
 
-  const releaseVersionError =
-    releaseVersion && Version.isValid(releaseVersion)
-      ? module.releases.some(r => r.release_version === releaseVersion)
-        ? "Release version already exists"
-        : undefined
-      : "Invalid version";
-
-  const canSubmit = !releaseVersionError && !!modVersion && gameVersions.length > 0 && !!zip;
+  const canSubmit =
+    releaseVersion &&
+    Version.isValid(releaseVersion) &&
+    !!modVersion &&
+    gameVersions.length > 0 &&
+    !!zip;
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -174,9 +172,8 @@ export default function UploadReleaseComponent({ module, validModVersions }: Pro
                 type="text"
                 onChange={e => setReleaseVersion(e.target.value)}
                 fullWidth
-                error={!!releaseVersionError}
+                error={!!releaseVersion}
               />
-              {releaseVersionError && <FormHelperText>{releaseVersionError}</FormHelperText>}
             </FormControl>
           </Grid>
           <Grid xs={12} sm={6} md={4}>

@@ -15,8 +15,8 @@ import {
 } from "@mui/joy";
 import { green, red, yellow } from "@mui/material/colors";
 import { switchMode } from "app/(utils)/layout";
-import type { PublicModule } from "app/api/db";
 import { Mobile, NotMobile } from "app/Mobile";
+import type { PublicModule } from "db/utils/pub";
 import Markdown from "marked-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -30,7 +30,7 @@ interface HeaderProps {
 export default function Header({ module, ownerView, hideUser }: HeaderProps) {
   const [deleteModalShowing, setDeleteModalShowing] = useState(false);
   const [deleteLoading, setDeleteLoading] = useState(false);
-  const totalDownloads = module.releases.reduce((sum, r) => sum + r.downloads, 0);
+  const totalDownloads = module.releases?.reduce((sum, r) => sum + r.downloads, 0) ?? 0;
   const router = useRouter();
 
   const deleteModule = () => {

@@ -1,4 +1,4 @@
-import { getSessionFromCookies } from "app/api";
+import { getSessionFromCookies } from "db/utils/session";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 

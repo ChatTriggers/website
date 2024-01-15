@@ -9,7 +9,7 @@ export default async function Page({ searchParams, params }: SearchParamProps & 
   const { token } = searchParams;
 
   if (!token || typeof token !== "string") notFound();
-  const userRepo = db().getRepository(User);
+  const userRepo = db.getRepository(User);
   const dbUser = await userRepo.findOneBy({ verificationToken: token });
   if (!dbUser || dbUser.name !== user) notFound();
 

@@ -26,7 +26,7 @@ interface Props {
 
 export default async function RootLayout({ children }: Props) {
   const session = getSessionFromCookies(cookies());
-  const user = session ? await db().getRepository(User).findOneBy({ id: session.id }) : undefined;
+  const user = session ? await db.getRepository(User).findOneBy({ id: session.id }) : undefined;
 
   return (
     <html lang="en">
