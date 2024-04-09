@@ -1,7 +1,7 @@
 import validator from "validator";
 
-const USERNAME_REGEX = /\w{3,32}/;
-const MODULE_REGEX = /\w{3,64}/;
+const USERNAME_REGEX = /^\w{3,32}$/;
+const MODULE_REGEX = /^\w{3,64}$/;
 
 export const isUsernameValid = (username: string) => USERNAME_REGEX.test(username);
 
