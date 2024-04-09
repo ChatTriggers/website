@@ -19,6 +19,7 @@ import {
 import colors from "@mui/joy/colors";
 import { switchMode, useMode } from "app/(utils)/layout";
 import type { PublicModule } from "app/api/db";
+import { isModuleValid } from "app/constants";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
@@ -127,8 +128,8 @@ interface Props {
 }
 
 export default function ModuleForm({ editingModule, availableTags, onSubmit }: Props) {
-  const [name, setName] = useState(editingModule?.name ?? undefined);
-  const [summary, setSummary] = useState(editingModule?.summary ?? undefined);
+  const [name, setName] = useState(editingModule?.name ?? "");
+  const [summary, setSummary] = useState(editingModule?.summary ?? "");
   const [description, setDescription] = useState(editingModule?.description ?? undefined);
   const [uploadedImage, setUploadedImage] = useState<File | undefined>();
   const [hidden, setHidden] = useState(editingModule?.hidden ?? false);
@@ -205,7 +206,12 @@ export default function ModuleForm({ editingModule, availableTags, onSubmit }: P
             {!editingModule && (
               <FormControl>
                 <FormLabel>Module Name</FormLabel>
-                <Input value={name} onChange={e => setName(e.target.value)} fullWidth />
+                <Input
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                  error={!isModuleValid(name)}
+                  fullWidth
+                />
                 <FormHelperText>
                   Must be 3-64 character long and can only have letters, numbers, and underscores
                 </FormHelperText>
@@ -275,7 +281,7 @@ export default function ModuleForm({ editingModule, availableTags, onSubmit }: P
           </Button>
           <Button
             onClick={handleSubmit}
-            disabled={!name}
+            disabled={!isModuleValid(name)}
             sx={{
               width: 150,
               color: colors.grey[switchMode(100, 800, mode)],
