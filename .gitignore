@@ -185,3 +185,4 @@ public/assets/modules/*
 !public/assets/modules/.gitkeep
 public/assets/users/*
 !public/assets/users/.gitkeep
+*.sql
