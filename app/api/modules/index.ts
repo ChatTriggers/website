@@ -200,7 +200,8 @@ export const getMany = async (
       .where("release.module_id = module.id")
       .andWhere("release.verified");
 
-    builder.andWhereExists(innerBuilder).groupBy("module.id");
+    // TODO: Removed groupBy("module.id") to allow this page to load
+    builder.andWhereExists(innerBuilder);
   }
 
   switch (sort) {

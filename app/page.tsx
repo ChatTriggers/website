@@ -99,7 +99,7 @@ const cachedStats = cached(5 * 60 * 1000, async () => {
     await releaseRepo
       .createQueryBuilder("release")
       .leftJoinAndSelect("release.module", "module")
-      .select("module.id")
+      .select(["module.id", "module.created_at"])
       .distinct(true)
       .orderBy("module.created_at", "DESC")
       .limit(10)
@@ -123,7 +123,7 @@ const cachedStats = cached(5 * 60 * 1000, async () => {
     await releaseRepo
       .createQueryBuilder("release")
       .leftJoinAndSelect("release.module", "module")
-      .select("module.id")
+      .select(["module.id", "module.updated_at"])
       .distinct(true)
       .orderBy("module.updated_at", "DESC")
       .limit(10)
