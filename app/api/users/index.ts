@@ -1,6 +1,6 @@
 import type { PublicUser } from "app/api/db";
 import { getDb, Module, User } from "app/api/db";
-import { validate as uuidValidate } from "uuid";
+import { isUUID } from "validator";
 
 export const getUserPublic = async (nameOrId: string): Promise<PublicUser | undefined> => {
   return (await getUser(nameOrId))?.public();
@@ -10,7 +10,7 @@ export const getUser = async (nameOrId: string): Promise<User | undefined> => {
   const db = await getDb();
   const builder = db.getRepository(User).createQueryBuilder("user");
 
-  if (uuidValidate(nameOrId)) {
+  if (isUUID(nameOrId)) {
     builder.where("id = :id", { id: nameOrId });
   } else {
     builder.where("name = :name", { name: nameOrId });

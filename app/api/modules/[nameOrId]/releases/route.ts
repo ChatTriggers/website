@@ -17,10 +17,10 @@ import { onReleaseCreated, onReleaseNeedsToBeVerified } from "app/api/(utils)/we
 import type { Module } from "app/api/db";
 import { getDb, Rank, Release } from "app/api/db";
 import * as modules from "app/api/modules";
+import { randomUUID } from "crypto";
 import * as fs from "fs/promises";
 import JSZip from "jszip";
 import type { NextRequest } from "next/server";
-import { v4 as uuid } from "uuid";
 
 export const PUT = route(async (req: NextRequest, { params }: SlugProps<"nameOrId">) => {
   const sessionUser = getSessionFromRequest(req);
@@ -65,7 +65,7 @@ export const PUT = route(async (req: NextRequest, { params }: SlugProps<"nameOrI
   const changelog = getFormEntry({ form, name: "changelog", type: "string", optional: true });
 
   const release = new Release();
-  release.id = uuid();
+  release.id = randomUUID();
   release.module = existingModule;
   release.release_version = releaseVersion;
   release.mod_version = modVersion;

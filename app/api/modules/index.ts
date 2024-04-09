@@ -8,7 +8,7 @@ import mysql from "mysql2";
 import { cookies } from "next/headers";
 import { Brackets, FindOptionsUtils } from "typeorm";
 import type { URLSearchParams } from "url";
-import { validate as uuidValidate } from "uuid";
+import { isUUID } from "validator";
 
 import { saveImageFile } from "../(utils)/assets";
 
@@ -38,7 +38,7 @@ export const getOne = async (nameOrId: string, session?: Session): Promise<Modul
     builder.expressionMap.mainAlias!.metadata,
   );
 
-  if (uuidValidate(nameOrId)) {
+  if (isUUID(nameOrId)) {
     builder.where("module.id = :id", { id: nameOrId });
   } else {
     builder.where("upper(module.name) = :name", { name: nameOrId.toUpperCase() });
@@ -127,7 +127,7 @@ export const getMany = async (
     builder.andWhere(
       new Brackets(qb => {
         for (const value of values) {
-          if (uuidValidate(value)) {
+          if (isUUID(value)) {
             qb.orWhere("user.id = :userId", { userId: value });
           } else {
             qb.orWhere("upper(user.name) like " + mysql.escape(`%${value.toUpperCase()}%`));

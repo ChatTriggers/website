@@ -1,9 +1,7 @@
-import { Email, User } from "app/api/db";
-import { getDb } from "app/api/db";
-import { EmailParams } from "mailersend";
-import { MailerSend, Recipient, Sender } from "mailersend";
+import { Email, getDb, User } from "app/api/db";
+import { randomUUID } from "crypto";
+import { EmailParams, MailerSend, Recipient, Sender } from "mailersend";
 import { In } from "typeorm";
-import { v4 as uuid } from "uuid";
 
 const mailerSend = new MailerSend({
   apiKey: process.env.MAILERSEND_API_KEY!,
@@ -25,9 +23,9 @@ export const sendEmail = async (recipient: string, params: EmailParams) => {
 };
 
 export const sendVerificationEmail = async (user: User) => {
-  user.verificationToken = uuid();
+  user.verificationToken = randomUUID();
   const db = await getDb();
-  await db.getRepository(User).save(user);
+  db.getRepository(User).save(user);
 
   const params = new EmailParams()
     .setTemplateId(process.env.MAILERSEND_VERIFICATION_TEMPLATE_ID!)

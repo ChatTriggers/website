@@ -48,7 +48,6 @@
     "swagger-ui-react": "^5.9.0",
     "typeorm": "^0.3.17",
     "typeorm-naming-strategies": "^4.1.0",
-    "uuid": "^9.0.1",
     "validator": "^13.11.0",
     "zlib-sync": "^0.1.8"
   },
@@ -59,7 +58,6 @@
     "@next/eslint-plugin-next": "^13.5.4",
     "@types/node": "20.8.0",
     "@types/react": "18.2.23",
-    "@types/uuid": "^9.0.4",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
     "eslint": "^8.50.0",

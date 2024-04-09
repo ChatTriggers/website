@@ -8,8 +8,8 @@ import {
 } from "app/api/(utils)";
 import { getDb, User } from "app/api/db";
 import { isEmailValid } from "app/constants";
+import { randomUUID } from "crypto";
 import type { NextRequest } from "next/server";
-import { v4 as uuid } from "uuid";
 
 export const POST = route(async (req: NextRequest) => {
   const form = await getFormData(req);
@@ -29,7 +29,7 @@ export const POST = route(async (req: NextRequest) => {
 });
 
 const sendPasswordResetEmail = async (user: User) => {
-  user.passwordResetToken = uuid();
+  user.passwordResetToken = randomUUID();
   const db = await getDb();
   await db.getRepository(User).save(user);
 
