@@ -18,14 +18,11 @@ export const connectionOptions: DataSourceOptions = {
 
 const db = new DataSource(connectionOptions);
 
-let dbInitialized = false;
-
 async function getDb() {
   noStore();
 
-  if (!dbInitialized) {
+  if (!db.isInitialized) {
     await db.initialize();
-    dbInitialized = true;
   }
 
   return db;
