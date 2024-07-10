@@ -2,6 +2,7 @@ import type { SearchParamProps, SlugProps } from "app/(utils)/next";
 import { User, db, setSession } from "app/api";
 import { notFound } from "next/navigation";
 
+import { cookies } from "next/headers";
 import VerifyComponent from "./VerifyComponent";
 
 export default async function Page({ searchParams, params }: SearchParamProps & SlugProps<"user">) {
@@ -21,7 +22,7 @@ export default async function Page({ searchParams, params }: SearchParamProps & 
       verificationToken: null,
     },
   });
-  setSession(await newUser.publicAuthenticated());
+  setSession(cookies(), await newUser.publicAuthenticated());
 
   return <VerifyComponent />;
 }

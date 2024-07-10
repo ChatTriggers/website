@@ -1,3 +1,4 @@
+import { isEmailVerified } from "app/(utils)";
 import type { SlugProps } from "app/(utils)/next";
 import {
   ClientError,
@@ -26,7 +27,7 @@ export const PATCH = route(async (req: NextRequest, { params }: SlugProps<"nameO
 
   const session = getSessionFromRequest(req);
   if (!session) throw new NotAuthenticatedError();
-  if (!session.emailVerified) throw new ForbiddenError("Email address not verified");
+  if (!isEmailVerified(session)) throw new ForbiddenError("Email not verified");
 
   if (module.user.id !== session.id && session.rank === Rank.default)
     throw new ForbiddenError("No permission to edit module");
@@ -92,7 +93,7 @@ export const DELETE = route(async (req: NextRequest, { params }: SlugProps<"name
 
   const session = getSessionFromRequest(req);
   if (!session) throw new NotAuthenticatedError();
-  if (!session.emailVerified) throw new ForbiddenError("Email not verified");
+  if (!isEmailVerified(session)) throw new ForbiddenError("Email not verified");
 
   if (module.user.id !== session.id && session.rank === Rank.default)
     throw new ForbiddenError("No permission to edit module");

@@ -73,7 +73,7 @@ export const sendPasswordResetEmail = async (user: User) => {
       },
     ]);
 
-  await sendEmail(user.email, params);
+  return await sendEmail(user.email, params);
 };
 
 export const sendVerificationEmail = async (user: User) => {
@@ -108,7 +108,7 @@ export const sendVerificationEmail = async (user: User) => {
       },
     ]);
 
-  await sendEmail(user.email, params);
+  return await sendEmail(user.email, params);
 };
 
 export { EmailParams, Recipient };

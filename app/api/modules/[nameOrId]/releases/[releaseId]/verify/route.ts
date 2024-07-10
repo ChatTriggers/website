@@ -1,3 +1,4 @@
+import { isEmailVerified } from "app/(utils)";
 import type { SlugProps } from "app/(utils)/next";
 import {
   ClientError,
@@ -13,8 +14,6 @@ import {
 } from "app/api";
 import { type Notification, Rank } from "app/api";
 import { deleteReleaseVerificationMessage } from "app/api/(utils)/webhooks";
-import * as modules from "app/api/modules";
-import * as users from "app/api/users";
 import { isUUID } from "validator";
 
 export const POST = route(async (req, { params }: SlugProps<"nameOrId" | "releaseId">) => {
@@ -25,7 +24,7 @@ export const POST = route(async (req, { params }: SlugProps<"nameOrId" | "releas
 
   const sessionUser = await db.user.getFromSession(session);
   if (!sessionUser) throw new NotAuthenticatedError("No permission");
-  if (!sessionUser.emailVerified) throw new ForbiddenError("Email not verified");
+  if (!isEmailVerified(session)) throw new ForbiddenError("Email not verified");
 
   const release = await db.release.findUnique({
     where: {

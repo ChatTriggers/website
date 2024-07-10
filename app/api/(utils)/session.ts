@@ -1,8 +1,7 @@
-import type { AuthenticatedUser, Rank } from "app/api";
+import type { AuthenticatedUser, Rank, User } from "app/api";
 import jwt from "jsonwebtoken";
 import type { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
-import type { RequestCookies } from "next/dist/server/web/spec-extension/cookies";
-import { cookies } from "next/headers";
+import type { RequestCookies, ResponseCookies } from "next/dist/server/web/spec-extension/cookies";
 import type { NextRequest, NextResponse } from "next/server";
 
 const JWT_ISSUER = "ChatTriggers";
@@ -56,13 +55,16 @@ export function getSessionFromRequest(req: NextRequest): Session | undefined {
   return getSession(req.cookies);
 }
 
-export function setSession(user: AuthenticatedUser | null) {
+export function setSession(
+  cookies: ReadonlyRequestCookies | ResponseCookies,
+  user: AuthenticatedUser | null,
+) {
   if (!user) {
-    cookies().delete(process.env.JWT_COOKIE_NAME);
+    cookies.delete(process.env.JWT_COOKIE_NAME);
     return;
   }
 
-  cookies().set({
+  cookies.set({
     name: process.env.JWT_COOKIE_NAME,
     value: createJWT({
       ctUser: {

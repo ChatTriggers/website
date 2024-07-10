@@ -11,8 +11,10 @@ namespace NodeJS {
     // Optional
     OLD_DATABASE_URL?: string;
     MAILERSEND_API_KEY?: string;
+    MAILERSEND_DOMAIN_ID?: string;
     MAILERSEND_VERIFICATION_TEMPLATE_ID?: string;
     MAILERSEND_PASSWORD_RESET_TEMPLATE_ID?: string;
     GITHUB_TOKEN?: string;
+    IGNORE_EMAIL_VERIFICATION?: boolean;
   }
 }

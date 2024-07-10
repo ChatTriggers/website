@@ -1,5 +1,6 @@
 import { randomUUID } from "node:crypto";
 import * as fs from "node:fs/promises";
+import { isEmailVerified } from "app/(utils)";
 import type { SlugProps } from "app/(utils)/next";
 import {
   BadQueryParamError,
@@ -25,7 +26,7 @@ import type { NextRequest } from "next/server";
 export const PUT = route(async (req: NextRequest, { params }: SlugProps<"nameOrId">) => {
   const session = getSessionFromRequest(req);
   if (!session) throw new NotAuthenticatedError();
-  if (!session.emailVerified) throw new ForbiddenError("Email not verified");
+  if (!isEmailVerified(session)) throw new ForbiddenError("Email not verified");
 
   const existingModule = await modules.getOne(params.nameOrId);
   if (!existingModule) throw new NotFoundError("Module not found");

@@ -55,8 +55,8 @@ export const PUT = route(async (req: NextRequest) => {
 
   // Log the user in and send the verification email
   const authedUser = await user.publicAuthenticated();
-  setSession(authedUser);
+  const response = NextResponse.json(authedUser, { status: 201 });
+  setSession(response.cookies, authedUser);
   await sendVerificationEmail(user);
-
-  return Response.json(authedUser, { status: 201 });
+  return response;
 });

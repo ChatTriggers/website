@@ -22,6 +22,7 @@ import {
 } from "@mui/joy";
 import { useState } from "react";
 
+import { isEmailVerified } from "app/(utils)";
 import type { AuthenticatedUser } from "app/api";
 
 interface Props {
@@ -83,8 +84,8 @@ function AccountIcon({ user }: Props) {
       />
     );
 
-    // Unread badge takes precedent over notification badge
-    if (!user.email_verified) {
+    // Unverified badge takes precedent over notification badge
+    if (!isEmailVerified(user)) {
       avatar = (
         <Badge badgeContent="❕" color="danger" size="sm">
           {avatar}
@@ -130,7 +131,7 @@ function AccountIcon({ user }: Props) {
                 Account
               </Link>
             </MenuItem>
-            {!user.email_verified && (
+            {!isEmailVerified(user) && (
               <MenuItem onClick={() => setVerificationModalOpen(true)}>
                 <ListItemDecorator>
                   <PriorityHigh color="error" />
@@ -196,7 +197,7 @@ function AccountIcon({ user }: Props) {
 export default function AppBarIcons({ user }: Props) {
   return (
     <>
-      {user?.email_verified && (
+      {user && isEmailVerified(user) && (
         <Link
           href="/modules/create"
           style={{

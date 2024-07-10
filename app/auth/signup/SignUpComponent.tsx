@@ -26,7 +26,7 @@ export default function SignIn() {
   const onChangeHandler =
     (valueSetter: (value: string) => void, valueChangedSetter: (value: boolean) => void) =>
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      valueSetter(e.target.value);
+      valueSetter(e.target.value.trim());
       valueChangedSetter(true);
     };
 

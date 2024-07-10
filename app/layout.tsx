@@ -12,6 +12,7 @@ import { User, db } from "app/api";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 
+import { isEmailVerified } from "./(utils)";
 import ThemeRegistry from "./ThemeRegistry";
 import { getSessionFromCookies } from "./api";
 import AppBar from "./appbar/AppBar";
@@ -27,13 +28,18 @@ interface Props {
 export default async function RootLayout({ children }: Props) {
   const session = getSessionFromCookies(cookies());
   const user = await db.user.getFromSession(session);
+  const authedUser = await user?.publicAuthenticated();
+
+  console.log(
+    `Session user: ${authedUser?.name}, verified: ${authedUser ? isEmailVerified(authedUser) : false}`,
+  );
 
   return (
     <html lang="en">
       <body>
         <ThemeRegistry>
           <CssBaseline />
-          <AppBar user={await user?.publicAuthenticated()}>{children}</AppBar>
+          <AppBar user={authedUser}>{children}</AppBar>
         </ThemeRegistry>
       </body>
     </html>
