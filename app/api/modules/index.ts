@@ -3,9 +3,7 @@ import type { Prisma, PublicModule, RelationalModule, Release, Session, User } f
 import { BadQueryParamError, ClientError, getSessionFromCookies } from "app/api";
 import { type Module, Rank, type Sort, db } from "app/api";
 import Version from "app/api/(utils)/Version";
-import mysql from "mysql2";
 import { cookies } from "next/headers";
-import { Brackets, FindOptionsUtils, QueryRunnerAlreadyReleasedError } from "typeorm";
 import { isUUID } from "validator";
 
 import { saveImageFile } from "../(utils)/assets";

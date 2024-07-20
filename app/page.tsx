@@ -4,7 +4,6 @@ import { Octokit } from "@octokit/rest";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { Fragment } from "react";
-import { In } from "typeorm";
 
 import type { GitInfo } from "./Home";
 import { DownloadComponent } from "./Home";

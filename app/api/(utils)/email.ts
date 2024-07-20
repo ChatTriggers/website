@@ -1,7 +1,6 @@
 import { randomUUID } from "node:crypto";
 import { Email, type User, db } from "app/api";
 import { EmailParams, MailerSend, Recipient, Sender } from "mailersend";
-import { In } from "typeorm";
 
 const mailerSend = process.env.MAILERSEND_API_KEY
   ? new MailerSend({ apiKey: process.env.MAILERSEND_API_KEY })

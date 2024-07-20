@@ -11,7 +11,6 @@ import {
   setSession,
 } from "app/api/(utils)";
 import { type NextRequest, NextResponse } from "next/server";
-import { Raw } from "typeorm";
 
 import { saveImage } from "..";
 

@@ -14,7 +14,6 @@ import * as account from "app/api/account";
 import { isEmailValid, isPasswordValid, isUsernameValid } from "app/constants";
 import bcrypt from "bcrypt";
 import { type NextRequest, NextResponse } from "next/server";
-import { Raw } from "typeorm";
 
 export const PUT = route(async (req: NextRequest) => {
   const existingSession = getSessionFromRequest(req);
