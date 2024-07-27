@@ -54,6 +54,9 @@ const legacyModuleIdMap = new Map<number, string>();
 progress = bar.create(legacyModules.length, 0);
 
 for (const legacyModule of legacyModules) {
+  // Skip a module with an invalid name
+  if (legacyModule.name.startsWith("&9")) continue;
+
   const userId = legacyUserIdMap.get(legacyModule.user_id);
   if (!userId)
     throw new Error(
