@@ -122,7 +122,7 @@ const makePrismaClient = () => {
                 image: imageUrl ?? null,
                 downloads: module.downloads,
                 hidden: module.hidden || undefined,
-                tags: module.tags?.split(","),
+                tags: module.tags && module.tags.length > 0 ? module.tags.split(",") : undefined,
                 releases: releases.filter(r => isAuthed || r.verified).map(r => r.public()),
                 created_at: module.createdAt.getTime(),
                 updated_at: module.updatedAt.getTime(),
