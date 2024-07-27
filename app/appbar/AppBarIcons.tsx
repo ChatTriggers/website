@@ -163,7 +163,12 @@ function AccountIcon({ user }: Props) {
       <Modal open={verificationModalOpen} onClose={() => setVerificationModalOpen(false)}>
         <ModalDialog>
           <ModalClose variant="plain" sx={{ m: 1 }} />
-          <Typography id="modal-title">Send verification email?</Typography>
+          <Typography id="modal-title" level="title-lg">
+            Send verification email?
+          </Typography>
+          <Typography level="body-lg">
+            You will not be able to create modules or releases until your email account is verified
+          </Typography>
           <Box
             sx={{
               mt: 1,

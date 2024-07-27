@@ -30,10 +30,6 @@ export default async function RootLayout({ children }: Props) {
   const user = await db.user.getFromSession(session);
   const authedUser = await user?.publicAuthenticated();
 
-  console.log(
-    `Session user: ${authedUser?.name}, verified: ${authedUser ? isEmailVerified(authedUser) : false}`,
-  );
-
   return (
     <html lang="en">
       <body>
