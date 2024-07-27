@@ -25,5 +25,5 @@ export const signIn = async (req: NextRequest) => {
   const response = NextResponse.json(authedUser);
   setSession(response.cookies, authedUser);
 
-  return Response.json(authedUser);
+  return response;
 };
