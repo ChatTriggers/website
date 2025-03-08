@@ -1,9 +1,5 @@
 import { colors, IconButton, Paper, Theme } from '@material-ui/core';
-import {
-  Check as CheckIcon,
-  Clear as ClearIcon,
-  Edit as EditIcon,
-} from '@material-ui/icons';
+import { Check as CheckIcon, Clear as ClearIcon, Edit as EditIcon } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
 
@@ -44,8 +40,7 @@ export default observer(() => {
   const classes = useStyles();
   const authed =
     authStore.user &&
-    (authStore.user.id === modulesStore.activeModule.owner.id ||
-      authStore.isTrustedOrHigher);
+    (authStore.user.id === modulesStore.activeModule.owner.id || authStore.isTrustedOrHigher);
 
   const [editing, setEditing] = React.useState(false);
   const [description, setDescription] = React.useState('');

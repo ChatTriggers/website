@@ -121,12 +121,8 @@ export default withTheme(
                   }
 
                   short = !short && Math.random() <= shortLineProb && n > minNormalLines;
-                  const width = `calc(100${units} - ${
-                    desktop ? 0 : theme.spacing(2) * 2
-                  }px -
-                            ${
-                              short ? shortLengthVariation : normalLengthVariation
-                            }${units})`;
+                  const width = `calc(100${units} - ${desktop ? 0 : theme.spacing(2) * 2}px -
+                            ${short ? shortLengthVariation : normalLengthVariation}${units})`;
 
                   return <Skeleton key={n} style={{ width }} />;
                 });

@@ -1,11 +1,4 @@
-import {
-  Button,
-  CircularProgress,
-  Paper,
-  TextField,
-  Theme,
-  Typography,
-} from '@material-ui/core';
+import { Button, CircularProgress, Paper, TextField, Theme, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { History } from 'history';
 import React from 'react';
@@ -162,11 +155,7 @@ export default withRouter(({ history }: ILoginPageProps) => {
             color="primary"
             disabled={username === '' || password === ''}
           >
-            {loading && !error ? (
-              <CircularProgress color="secondary" size={30} />
-            ) : (
-              'Login'
-            )}
+            {loading && !error ? <CircularProgress color="secondary" size={30} /> : 'Login'}
           </Button>
         </Paper>
       </div>

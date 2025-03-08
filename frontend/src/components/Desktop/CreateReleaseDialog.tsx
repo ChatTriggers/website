@@ -93,12 +93,7 @@ export default observer(({ open, onClose }: ICreateReleaseDialog) => {
   };
 
   const onSubmit = async (): Promise<void> => {
-    if (
-      !fileRef.current ||
-      !fileRef.current.files ||
-      !modulesStore.activeModule ||
-      releaseError
-    )
+    if (!fileRef.current || !fileRef.current.files || !modulesStore.activeModule || releaseError)
       return;
 
     setLoading(true);
@@ -135,9 +130,7 @@ export default observer(({ open, onClose }: ICreateReleaseDialog) => {
       }}
     >
       {modulesStore.activeModule && (
-        <Typography variant="h5">
-          {`Create Release for ${modulesStore.activeModule.name}`}
-        </Typography>
+        <Typography variant="h5">{`Create Release for ${modulesStore.activeModule.name}`}</Typography>
       )}
       <div className={classes.versions}>
         <TextField
@@ -154,11 +147,7 @@ export default observer(({ open, onClose }: ICreateReleaseDialog) => {
         <label htmlFor="module-file-upload">
           <input ref={fileRef} id="module-file-upload" accept=".zip" type="file" hidden />
           <div>
-            <Button
-              className={classes.scriptButton}
-              variant="contained"
-              onClick={onUploadScripts}
-            >
+            <Button className={classes.scriptButton} variant="contained" onClick={onUploadScripts}>
               Upload Scripts
             </Button>
             <Container style={{ textAlign: 'center' }}>{fileName}</Container>
@@ -166,11 +155,7 @@ export default observer(({ open, onClose }: ICreateReleaseDialog) => {
         </label>
       </div>
       <div className={classes.editor}>
-        <MarkdownEditor
-          value={changelog}
-          handleChange={onChangeChangelog}
-          shouldBeChangelog
-        />
+        <MarkdownEditor value={changelog} handleChange={onChangeChangelog} shouldBeChangelog />
       </div>
       <div className={classes.buttons}>
         <Button

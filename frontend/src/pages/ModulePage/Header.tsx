@@ -8,11 +8,7 @@ import {
   withWidth,
 } from '@material-ui/core';
 import { WithWidthProps } from '@material-ui/core/withWidth';
-import {
-  Check as CheckIcon,
-  Clear as ClearIcon,
-  Edit as EditIcon,
-} from '@material-ui/icons';
+import { Check as CheckIcon, Clear as ClearIcon, Edit as EditIcon } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
 
@@ -74,8 +70,7 @@ export default withWidth()(
     const classes = useStyles();
     const authed =
       authStore.user &&
-      (authStore.user.id === modulesStore.activeModule.owner.id ||
-        authStore.isTrustedOrHigher);
+      (authStore.user.id === modulesStore.activeModule.owner.id || authStore.isTrustedOrHigher);
 
     const onClickEditing = (): void => {
       if (editing) {
@@ -100,9 +95,7 @@ export default withWidth()(
       setEditing(false);
     };
 
-    const onChangeImage = (
-      e: React.ChangeEvent<{ name?: string; value: unknown }>,
-    ): void => {
+    const onChangeImage = (e: React.ChangeEvent<{ name?: string; value: unknown }>): void => {
       setImageUrl(e.target.value as string);
       setImageValid(
         /^https?:\/\/(\w+\.)?imgur.com\/[a-zA-Z0-9]{7}\.[a-zA-Z0-9]+$/g.test(

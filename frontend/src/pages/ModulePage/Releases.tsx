@@ -31,14 +31,7 @@ import VersionSelect from '~components/Desktop/VersionSelect';
 import MarkdownEditor from '~components/MarkdownEditor';
 import MarkdownRenderer from '~components/MarkdownRenderer';
 import SemvarSorter from '~components/utils/SemvarSorter';
-import {
-  action,
-  authStore,
-  errorStore,
-  modulesStore,
-  observer,
-  runInAction,
-} from '~store';
+import { action, authStore, errorStore, modulesStore, observer, runInAction } from '~store';
 import { IRelease } from '~types';
 
 export type OpenDialog = 'add' | 'delete' | 'none';
@@ -152,9 +145,7 @@ export default observer(() => {
           .map(release => {
             const editing = editingRelease === release.id;
 
-            const releaseChip = (
-              <Chip label={`v${release.releaseVersion}`} size="small" />
-            );
+            const releaseChip = <Chip label={`v${release.releaseVersion}`} size="small" />;
             const modChip = editing ? (
               <VersionSelect ctVersion={version} setCtVersion={setVersion} />
             ) : (
@@ -176,22 +167,19 @@ export default observer(() => {
               if (editing) {
                 setEditingRelease('');
                 runInAction(() => {
-                  modulesStore.activeModule.releases =
-                    modulesStore.activeModule.releases.reduce((prev, curr) => {
+                  modulesStore.activeModule.releases = modulesStore.activeModule.releases.reduce(
+                    (prev, curr) => {
                       if (curr.id !== release.id) prev.push(curr);
                       else prev.push({ ...curr, modVersion: version, changelog });
 
                       return prev;
-                    }, [] as IRelease[]);
+                    },
+                    [] as IRelease[],
+                  );
                 });
 
                 try {
-                  updateRelease(
-                    modulesStore.activeModule.id,
-                    release.id,
-                    version,
-                    changelog,
-                  );
+                  updateRelease(modulesStore.activeModule.id, release.id, version, changelog);
                   getModules();
                 } catch (e) {
                   const err = e as Error;
@@ -270,11 +258,7 @@ export default observer(() => {
                     Download
                   </Button>
                   <IconButton onClick={() => setOpenedRelease(release.id)}>
-                    {openedRelease === release.id ? (
-                      <ExpandLessIcon />
-                    ) : (
-                      <ExpandMoreIcon />
-                    )}
+                    {openedRelease === release.id ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                   </IconButton>
                 </ListItem>
                 <Collapse in={openedRelease === release.id} timeout="auto" unmountOnExit>

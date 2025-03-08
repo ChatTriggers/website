@@ -39,19 +39,13 @@ export const createRelease = async (
   return validateStatusCode(response, ApiErrors.CreateRelease);
 };
 
-export const getReleaseScript = async (
-  moduleId: string,
-  releaseId: string,
-): Promise<Blob> => {
+export const getReleaseScript = async (moduleId: string, releaseId: string): Promise<Blob> => {
   const url = `${releasesUrlSpecific(moduleId, releaseId)}?file=scripts`;
   const response = await axios.get<Blob>(url, { responseType: 'blob' });
   return validateStatusCode(response);
 };
 
-export const getRelease = async (
-  moduleId: string,
-  releaseId: string,
-): Promise<IRelease> => {
+export const getRelease = async (moduleId: string, releaseId: string): Promise<IRelease> => {
   const response = await axios.get<IRelease>(releasesUrlSpecific(moduleId, releaseId));
   return validateStatusCode(response);
 };
@@ -83,10 +77,7 @@ export const updateRelease = async (
   return validateStatusCode(response, ApiErrors.UpdateRelease);
 };
 
-export const deleteRelease = async (
-  moduleId: number,
-  releaseId: string,
-): Promise<undefined> => {
+export const deleteRelease = async (moduleId: number, releaseId: string): Promise<undefined> => {
   const response = await axios.delete<undefined>(
     releasesUrlSpecific(moduleId.toString(), releaseId),
   );

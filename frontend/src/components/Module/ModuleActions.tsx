@@ -77,8 +77,7 @@ export default observer(({ className }: IModuleActionsProps) => {
   };
 
   const toggleUserTrust = async (): Promise<void> => {
-    const newRank =
-      modulesStore.activeModule.owner.rank === 'trusted' ? 'default' : 'trusted';
+    const newRank = modulesStore.activeModule.owner.rank === 'trusted' ? 'default' : 'trusted';
 
     setTrustLoading(true);
     await toggleTrust(modulesStore.activeModule.owner.id);
@@ -114,26 +113,23 @@ export default observer(({ className }: IModuleActionsProps) => {
       <DeleteDialog open={open} close={closeDialog} />
       {authed && (
         <>
-          {authStore.isAdmin &&
-            modulesStore.activeModule.owner.id !== authStore.user?.id && (
-              <Button
-                className={clsx(classes.button, classes.buttonTrust)}
-                fullWidth
-                size="small"
-                variant="contained"
-                onClick={toggleUserTrust}
-              >
-                {trustLoading ? (
-                  <CircularProgress size={22} />
-                ) : (
-                  `${
-                    modulesStore.activeModule.owner.rank === 'trusted'
-                      ? 'Untrust'
-                      : 'Trust'
-                  } ${modulesStore.activeModule.owner.name}`
-                )}
-              </Button>
-            )}
+          {authStore.isAdmin && modulesStore.activeModule.owner.id !== authStore.user?.id && (
+            <Button
+              className={clsx(classes.button, classes.buttonTrust)}
+              fullWidth
+              size="small"
+              variant="contained"
+              onClick={toggleUserTrust}
+            >
+              {trustLoading ? (
+                <CircularProgress size={22} />
+              ) : (
+                `${modulesStore.activeModule.owner.rank === 'trusted' ? 'Untrust' : 'Trust'} ${
+                  modulesStore.activeModule.owner.name
+                }`
+              )}
+            </Button>
+          )}
           {authStore.isTrustedOrHigher && (
             <Button
               className={clsx(classes.button, classes.buttonFlag)}

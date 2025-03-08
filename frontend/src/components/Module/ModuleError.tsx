@@ -41,8 +41,8 @@ export default ({ errorType }: IModuleErrorProps) => {
       title: <Typography variant="h5">Module not found</Typography>,
       description: (
         <Typography variant="body1">
-          Oops! It seems you&apos;ve tried to access a module that doesn&apos;t exist.
-          Click <Link to="/modules">here</Link> to go back to the list of modules
+          Oops! It seems you&apos;ve tried to access a module that doesn&apos;t exist. Click{' '}
+          <Link to="/modules">here</Link> to go back to the list of modules
         </Typography>
       ),
     },

@@ -63,12 +63,7 @@ const TagList = observer(function TagList(props: TagListProps) {
       ))}
       {props.tags.length > props.maxTags && (
         <>
-          <Chip
-            label="..."
-            className={props.classes.chip}
-            clickable
-            onClick={handleClick}
-          />
+          <Chip label="..." className={props.classes.chip} clickable onClick={handleClick} />
           <Popper open={tagExpand} anchorEl={anchor} transition>
             {({ TransitionProps }) => (
               <ClickAwayListener onClickAway={handleClickAway}>

@@ -65,9 +65,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default observer(() => {
   const classes = useStyles();
-  const modules = modulesStore.modules.map(module => (
-    <Module key={module.id} module={module} />
-  ));
+  const modules = modulesStore.modules.map(module => <Module key={module.id} module={module} />);
   const skeletons = Array(4)
     .fill(undefined)
     .map((_, i) => i)

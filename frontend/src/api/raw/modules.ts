@@ -67,10 +67,7 @@ export const updateModule = async (
 ): Promise<IModule> => {
   const searchParams = new URLParams({ description, image, flagged, tags });
 
-  const response = await axios.patch<IModule>(
-    moduleIdUrl(moduleId),
-    searchParams.toString(),
-  );
+  const response = await axios.patch<IModule>(moduleIdUrl(moduleId), searchParams.toString());
 
   return validateStatusCode(response, ApiErrors.UpdateModule);
 };

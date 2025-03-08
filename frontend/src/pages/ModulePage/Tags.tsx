@@ -8,11 +8,7 @@ import {
   Theme,
   Typography,
 } from '@material-ui/core';
-import {
-  Check as CheckIcon,
-  Clear as ClearIcon,
-  Edit as EditIcon,
-} from '@material-ui/icons';
+import { Check as CheckIcon, Clear as ClearIcon, Edit as EditIcon } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import React from 'react';
 
@@ -52,8 +48,7 @@ export default observer(() => {
   const classes = useStyles();
   const authed =
     authStore.user &&
-    (authStore.user.id === modulesStore.activeModule.owner.id ||
-      authStore.isTrustedOrHigher);
+    (authStore.user.id === modulesStore.activeModule.owner.id || authStore.isTrustedOrHigher);
 
   const [editing, setEditing] = React.useState(false);
   const [tags, setTags] = React.useState([] as string[]);
@@ -76,9 +71,7 @@ export default observer(() => {
     }
   };
 
-  const onChangeTags = (
-    e: React.ChangeEvent<{ name?: string; value: unknown }>,
-  ): void => {
+  const onChangeTags = (e: React.ChangeEvent<{ name?: string; value: unknown }>): void => {
     setTags(e.target.value as string[]);
   };
 
@@ -91,22 +84,14 @@ export default observer(() => {
       <div style={{ display: 'flex', marginBottom: 8 }}>
         <Typography variant="subtitle1">Tags</Typography>
         {authed ? (
-          <IconButton
-            className={classes.editButton}
-            size="small"
-            onClick={onClickEditing}
-          >
+          <IconButton className={classes.editButton} size="small" onClick={onClickEditing}>
             {editing ? <CheckIcon /> : <EditIcon />}
           </IconButton>
         ) : (
           <div />
         )}
         {editing ? (
-          <IconButton
-            className={classes.deleteButton}
-            size="small"
-            onClick={onClickDelete}
-          >
+          <IconButton className={classes.deleteButton} size="small" onClick={onClickDelete}>
             <ClearIcon />
           </IconButton>
         ) : (

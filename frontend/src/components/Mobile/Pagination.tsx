@@ -51,11 +51,7 @@ export default observer(() => {
 
   return (
     <Paper className={classes.root} square>
-      <IconButton
-        className={classes.button}
-        onClick={onFirstPage}
-        disabled={apiStore.page === 0}
-      >
+      <IconButton className={classes.button} onClick={onFirstPage} disabled={apiStore.page === 0}>
         <FirstPageIcon fontSize="large" />
       </IconButton>
       <IconButton

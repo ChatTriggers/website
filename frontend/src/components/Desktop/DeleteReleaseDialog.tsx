@@ -68,8 +68,8 @@ export default ({ open, onClose, releaseId }: IDeleteDialogProps) => {
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
       <div className={classes.root}>
         <Typography>
-          Are you sure you want to delete this release? This is a permanent action, and
-          cannot be reversed.
+          Are you sure you want to delete this release? This is a permanent action, and cannot be
+          reversed.
         </Typography>
         <FormGroup className={classes.buttons} row>
           <ButtonGroup size="medium">

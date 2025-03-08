@@ -58,16 +58,10 @@ const TablePaginationActions = observer(({ className }: ITablePaginationActionsP
       <IconButton onClick={handlePreviousPageClick} disabled={apiStore.page === 0}>
         <KeyboardArrowLeftIcon />
       </IconButton>
-      <IconButton
-        onClick={handleNextPageClick}
-        disabled={apiStore.page >= apiStore.totalPages - 1}
-      >
+      <IconButton onClick={handleNextPageClick} disabled={apiStore.page >= apiStore.totalPages - 1}>
         <KeyboardArrowRightIcon />
       </IconButton>
-      <IconButton
-        onClick={handleLastPageClick}
-        disabled={apiStore.page >= apiStore.totalPages - 1}
-      >
+      <IconButton onClick={handleLastPageClick} disabled={apiStore.page >= apiStore.totalPages - 1}>
         <LastPageIcon />
       </IconButton>
     </div>
@@ -95,9 +89,7 @@ interface ITablePaginationProps {
 
 const TablePagination = observer(
   (props: WithStyles<typeof stylesPagination> & ITablePaginationProps) => {
-    const handleChangePage = (
-      e: React.ChangeEvent<{ name?: string; value: unknown }>,
-    ): void => {
+    const handleChangePage = (e: React.ChangeEvent<{ name?: string; value: unknown }>): void => {
       const newPage = parseInt(e.target.value as string, 10);
       if (newPage === apiStore.page) return;
 

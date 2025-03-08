@@ -1,11 +1,4 @@
-import {
-  Button,
-  IconButton,
-  Paper,
-  Theme,
-  Typography,
-  WithStyles,
-} from '@material-ui/core';
+import { Button, IconButton, Paper, Theme, Typography, WithStyles } from '@material-ui/core';
 import {
   KeyboardArrowDown as KeyboardArrowDownIcon,
   KeyboardArrowUp as KeyboardArrowUpIcon,
@@ -107,9 +100,7 @@ const Module = observer((props: ModuleProps) => {
 
   useEffect(
     action(() => {
-      setCollapsible(
-        (markdownRef.current && markdownRef.current.clientHeight === height) || false,
-      );
+      setCollapsible((markdownRef.current && markdownRef.current.clientHeight === height) || false);
     }),
     [],
   );

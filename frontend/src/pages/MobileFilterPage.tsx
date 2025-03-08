@@ -208,9 +208,7 @@ export default observer(() => {
     }
   };
 
-  const onChangeModuleSorting = (
-    e: React.ChangeEvent<{ name?: string; value: unknown }>,
-  ): void => {
+  const onChangeModuleSorting = (e: React.ChangeEvent<{ name?: string; value: unknown }>): void => {
     const moduleSorting = e.target.value as ModuleSorting;
 
     if (moduleSorting !== apiStore.sorting) {
@@ -270,11 +268,7 @@ export default observer(() => {
                 endAdornment:
                   (searching && (
                     <div>
-                      <CircularProgress
-                        size={15}
-                        thickness={7}
-                        style={{ marginRight: 30 }}
-                      />
+                      <CircularProgress size={15} thickness={7} style={{ marginRight: 30 }} />
                     </div>
                   )) ||
                   undefined,
@@ -311,17 +305,8 @@ export default observer(() => {
                 onChange={onFilterChange}
               >
                 <FormControlLabel control={<Radio />} label="All Modules" value="all" />
-                <FormControlLabel
-                  control={<Radio />}
-                  label="Trusted Modules"
-                  value="trusted"
-                />
-                <FormControlLabel
-                  control={<Radio />}
-                  label="My Modules"
-                  value="user"
-                  disabled
-                />
+                <FormControlLabel control={<Radio />} label="Trusted Modules" value="trusted" />
+                <FormControlLabel control={<Radio />} label="My Modules" value="user" disabled />
                 <FormControlLabel
                   className={clsx(!authStore.isAdmin && classes.hidden)}
                   control={<Radio />}

@@ -81,9 +81,7 @@ const styles: Styles = (theme: Theme) => ({
   },
 });
 
-const ReleaseVerificationPage = (
-  props: VerificationProps & WithStyles<typeof styles>,
-) => {
+const ReleaseVerificationPage = (props: VerificationProps & WithStyles<typeof styles>) => {
   const [isLoading, setLoading] = React.useState(true);
   const [token, setToken] = React.useState('');
   const [moduleId, setModuleId] = React.useState('');
@@ -106,17 +104,14 @@ const ReleaseVerificationPage = (
       setChangelog(release.changelog);
 
       const oldBlob =
-        oldReleaseId === undefined
-          ? undefined
-          : await getReleaseScript(moduleIdStr, oldReleaseId);
+        oldReleaseId === undefined ? undefined : await getReleaseScript(moduleIdStr, oldReleaseId);
       const newBlob = await getReleaseScript(moduleIdStr, newReleaseId);
 
       const promises: Array<Promise<IDiff | undefined>> = [];
 
       if (oldBlob !== undefined) {
         (await JSZip.loadAsync(oldBlob)).forEach((path, file) => {
-          if (file.dir || path.endsWith('.DS_STORE') || path.indexOf('.git/') !== -1)
-            return;
+          if (file.dir || path.endsWith('.DS_STORE') || path.indexOf('.git/') !== -1) return;
 
           promises.push(
             new Promise(resolve => {
@@ -137,15 +132,12 @@ const ReleaseVerificationPage = (
       }
 
       (await JSZip.loadAsync(newBlob)).forEach((path, file) => {
-        if (file.dir || path.endsWith('.DS_STORE') || path.indexOf('.git/') !== -1)
-          return;
+        if (file.dir || path.endsWith('.DS_STORE') || path.indexOf('.git/') !== -1) return;
 
         promises.push(
           new Promise(resolve => {
             file.async('string').then(text => {
-              const arr = new TextEncoder().encode(
-                text.replace('\r\n', '\n').replace('\r', '\n'),
-              );
+              const arr = new TextEncoder().encode(text.replace('\r\n', '\n').replace('\r', '\n'));
               resolve({
                 path,
                 isBinary: isBinary(path, Buffer.from(arr)) === true,
@@ -263,18 +255,10 @@ const ReleaseVerificationPage = (
           {changelog}
         </Typography>
         <div className={props.classes.headerButtons}>
-          <Button
-            className={props.classes.moduleButton}
-            variant="contained"
-            onClick={viewModule}
-          >
+          <Button className={props.classes.moduleButton} variant="contained" onClick={viewModule}>
             <Typography>View Module</Typography>
           </Button>
-          <Button
-            className={props.classes.verifyButton}
-            variant="contained"
-            onClick={verify}
-          >
+          <Button className={props.classes.verifyButton} variant="contained" onClick={verify}>
             <Typography>Verify Release</Typography>
           </Button>
           <Button

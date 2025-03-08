@@ -56,9 +56,7 @@ interface IDrawerContentProps extends RouteComponentProps {
 export default withRouter(
   observer(({ history, closeDrawer }: IDrawerContentProps) => {
     const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState(
-      undefined as HTMLButtonElement | undefined,
-    );
+    const [anchorEl, setAnchorEl] = React.useState(undefined as HTMLButtonElement | undefined);
 
     const onClickCreateAccount = (): void => {
       if (closeDrawer) closeDrawer();
@@ -68,9 +66,7 @@ export default withRouter(
       }, 300);
     };
 
-    const onClickUserSettings = (
-      e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    ): void => {
+    const onClickUserSettings = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
       setAnchorEl(e.currentTarget);
     };
 
@@ -125,11 +121,7 @@ export default withRouter(
         </List>
         <Divider />
         <List>
-          <ListItem
-            button
-            component="a"
-            href="https://discordapp.com/invite/0fNjZyopOvBHZyG8"
-          >
+          <ListItem button component="a" href="https://discordapp.com/invite/0fNjZyopOvBHZyG8">
             <ListItemIcon>
               <img className={classes.img} src={discordIcon} alt="Discord Logo" />
             </ListItemIcon>

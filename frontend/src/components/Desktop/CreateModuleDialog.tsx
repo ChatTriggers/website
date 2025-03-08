@@ -77,9 +77,7 @@ export default ({ open, onClose }: ICreateReleaseDialog) => {
   const [loading, setLoading] = React.useState(false);
   const [flagged, setFlagChecked] = React.useState(false);
 
-  const onChangeName = ({
-    target,
-  }: React.ChangeEvent<{ name?: string; value: unknown }>): void => {
+  const onChangeName = ({ target }: React.ChangeEvent<{ name?: string; value: unknown }>): void => {
     const n = target.value as string;
     setName(n);
 
@@ -103,15 +101,11 @@ export default ({ open, onClose }: ICreateReleaseDialog) => {
     if (img.length === 0) {
       setImageError(false);
     } else {
-      setImageError(
-        !/^https?:\/\/(\w+\.)?imgur.com\/[a-zA-Z0-9]{7}\.[a-zA-Z0-9]+$/g.test(img),
-      );
+      setImageError(!/^https?:\/\/(\w+\.)?imgur.com\/[a-zA-Z0-9]{7}\.[a-zA-Z0-9]+$/g.test(img));
     }
   };
 
-  const onChangeTags = ({
-    target,
-  }: React.ChangeEvent<{ name?: string; value: unknown }>): void => {
+  const onChangeTags = ({ target }: React.ChangeEvent<{ name?: string; value: unknown }>): void => {
     setTags(target.value as string[]);
   };
 

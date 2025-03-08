@@ -1,11 +1,4 @@
-import {
-  Button,
-  ButtonGroup,
-  Dialog,
-  FormGroup,
-  Theme,
-  Typography,
-} from '@material-ui/core';
+import { Button, ButtonGroup, Dialog, FormGroup, Theme, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
 import { errorStore, observer } from '~store';
@@ -31,12 +24,7 @@ export default observer(() => {
   const classes = useStyles();
 
   return (
-    <Dialog
-      open={errorStore.error}
-      onClose={errorStore.clearError}
-      maxWidth="sm"
-      fullWidth
-    >
+    <Dialog open={errorStore.error} onClose={errorStore.clearError} maxWidth="sm" fullWidth>
       <div className={classes.root}>
         <Typography className={classes.title} variant="h4">
           {errorStore.errorTitle}

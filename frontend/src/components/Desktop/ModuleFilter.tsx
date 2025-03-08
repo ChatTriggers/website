@@ -74,9 +74,7 @@ export default observer(() => {
   const [searchTimeout, setSearchTimeout] = React.useState<NodeJS.Timeout[]>();
   const [selectedRadio, setSelectedRadio] = React.useState<RadioOption>('all');
 
-  const onSearchChange = (
-    e: React.ChangeEvent<{ name?: string; value: unknown }>,
-  ): void => {
+  const onSearchChange = (e: React.ChangeEvent<{ name?: string; value: unknown }>): void => {
     if (searchTimeout) searchTimeout.forEach(clearTimeout);
 
     if (errorStore.modulesNotLoaded) {
@@ -100,9 +98,7 @@ export default observer(() => {
     ]);
   };
 
-  const onSearchTagsChange = (
-    e: React.ChangeEvent<{ name?: string; value: unknown }>,
-  ): void => {
+  const onSearchTagsChange = (e: React.ChangeEvent<{ name?: string; value: unknown }>): void => {
     if (searchTimeout) searchTimeout.forEach(clearTimeout);
 
     if (errorStore.modulesNotLoaded) {
@@ -138,9 +134,7 @@ export default observer(() => {
     }
   });
 
-  const onChangeModuleSorting = (
-    e: React.ChangeEvent<{ name?: string; value: unknown }>,
-  ): void => {
+  const onChangeModuleSorting = (e: React.ChangeEvent<{ name?: string; value: unknown }>): void => {
     const moduleSorting = e.target.value as ModuleSorting;
 
     if (moduleSorting !== apiStore.sorting) {
@@ -243,27 +237,14 @@ export default observer(() => {
         <Grid item xs={12}>
           <div className={classes.buttons}>
             <FormControl>
-              <RadioGroup
-                name="module-filter"
-                value={selectedRadio}
-                onChange={onFilterChange}
-                row
-              >
+              <RadioGroup name="module-filter" value={selectedRadio} onChange={onFilterChange} row>
                 <FormControlLabel value="all" label="All Modules" control={<Radio />} />
-                <FormControlLabel
-                  value="trusted"
-                  label="Trusted Modules"
-                  control={<Radio />}
-                />
+                <FormControlLabel value="trusted" label="Trusted Modules" control={<Radio />} />
                 {authStore.isAuthed && (
                   <FormControlLabel value="user" label="My Modules" control={<Radio />} />
                 )}
                 {authStore.isAuthed && !authStore.isDefault && (
-                  <FormControlLabel
-                    value="flagged"
-                    label="Flagged Modules"
-                    control={<Radio />}
-                  />
+                  <FormControlLabel value="flagged" label="Flagged Modules" control={<Radio />} />
                 )}
               </RadioGroup>
             </FormControl>

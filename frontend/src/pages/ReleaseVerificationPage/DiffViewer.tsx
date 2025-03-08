@@ -1,8 +1,5 @@
 import { Collapse, IconButton, Paper, Theme, Typography } from '@material-ui/core';
-import {
-  ChevronRight as ArrowRightIcon,
-  ExpandMore as ArrowDownIcon,
-} from '@material-ui/icons';
+import { ChevronRight as ArrowRightIcon, ExpandMore as ArrowDownIcon } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/styles';
 import * as monaco from 'monaco-editor';
 import React, { useEffect, useRef } from 'react';

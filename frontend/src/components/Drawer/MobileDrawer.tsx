@@ -1,11 +1,4 @@
-import {
-  AppBar,
-  IconButton,
-  SwipeableDrawer,
-  Theme,
-  Toolbar,
-  Typography,
-} from '@material-ui/core';
+import { AppBar, IconButton, SwipeableDrawer, Theme, Toolbar, Typography } from '@material-ui/core';
 import {
   ChevronLeft as ChevronLeftIcon,
   KeyboardArrowLeft as KeyboardArrowLeftIcon,
@@ -111,10 +104,7 @@ export default withRouter(({ title, location, history }: IMobileDrawerProps) => 
 
   return (
     <>
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, open && classes.appBarShift)}
-      >
+      <AppBar position="fixed" className={clsx(classes.appBar, open && classes.appBarShift)}>
         <Toolbar>
           {button}
           <Typography variant="h6" noWrap>
