@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Toast</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+<link href="../../../styles/multimodule.css" rel="Stylesheet">
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>ctjs</span>
+            </a>
+    </div>
+    <div>
+<dokka-template-command data="{&quot;@class&quot;:&quot;org.jetbrains.dokka.base.templating.ReplaceVersionsCommand&quot;,&quot;location&quot;:&quot;ctjs/com.chattriggers.ctjs.api.render/-toast/index.html&quot;}"><div class="versions-dropdown">
+  <div class="versions-dropdown-button">3.0.0-beta</div>
+  <div class="versions-dropdown-data"><a href="index.html">3.0.0-beta</a><a href="../../../not-found-version.html?v=2.2.0-1.8.9">2.2.0-1.8.9</a></div>
+</div>
+</dokka-template-command>    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":1.20.4-fabric:dokkaHtml/main">jvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="ctjs::com.chattriggers.ctjs.api.render/Toast///PointingToDeclaration//2012257574">
+  <div class="breadcrumbs"><a href="../../../index.html">ctjs</a><span class="delimiter">/</span><a href="../index.html">com.chattriggers.ctjs.api.render</a><span class="delimiter">/</span><span class="current">Toast</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Toast</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">Toast</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">config<span class="token operator">: </span><span data-unresolved-link="org.mozilla.javascript/NativeObject///PointingToDeclaration/">NativeObject</span></span></span><span class="token punctuation">)</span> : <a href="https://maven.fabricmc.net/docs/yarn-1.20.4+build.3/net/minecraft/client/toast/Toast.html">Toast</a></div><p class="paragraph">Displays a toast in the top left corner similar to the MC advancement toast</p><p class="paragraph">Object properties that can be passed to the constructor:</p><ul><li><p class="paragraph">title: A TextComponent (or anything that can be passed to the TextComponent constructor)</p></li><li><p class="paragraph">description: A TextComponent (or anything that can be passed to the TextComponent constructor)</p></li><li><p class="paragraph">background: An Image or a String/Identifier that points to a texture. Defaults to the advancement background</p></li><li><p class="paragraph">icon: An Image or a String/Identifier that points to a texture</p></li><li><p class="paragraph">width: The width of the toast, defaults to 160</p></li><li><p class="paragraph">height: The height of the toast, defaults to 32</p></li><li><p class="paragraph">render: An optional function that will be called to render the toast. By default, it renders the same     way that advancement toasts do. If this function is called, it will not render anything by default.     It takes no parameters and is called with the Toast object as its receiver.</p></li></ul></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1926134634%2FConstructors%2F2012257574" anchor-label="Toast" id="-1926134634%2FConstructors%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-toast.html"><span><span>Toast</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1926134634%2FConstructors%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">config<span class="token operator">: </span><span data-unresolved-link="org.mozilla.javascript/NativeObject///PointingToDeclaration/">NativeObject</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="1551615467%2FClasslikes%2F2012257574" anchor-label="Companion" id="1551615467%2FClasslikes%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1551615467%2FClasslikes%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1554557512%2FProperties%2F2012257574" anchor-label="background" id="1554557512%2FProperties%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="background.html"><span><span>background</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1554557512%2FProperties%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="background.html">background</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1420818840%2FProperties%2F2012257574" anchor-label="description" id="-1420818840%2FProperties%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="description.html"><span><span>description</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1420818840%2FProperties%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="description.html">description</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="722418453%2FProperties%2F2012257574" anchor-label="displayTime" id="722418453%2FProperties%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="display-time.html"><span>display</span><wbr></wbr><span><span>Time</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="722418453%2FProperties%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="display-time.html">displayTime</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="970959901%2FProperties%2F2012257574" anchor-label="icon" id="970959901%2FProperties%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="icon.html"><span><span>icon</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="970959901%2FProperties%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="icon.html">icon</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2041827124%2FProperties%2F2012257574" anchor-label="title" id="-2041827124%2FProperties%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="title.html"><span><span>title</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2041827124%2FProperties%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="title.html">title</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-284548950%2FFunctions%2F2012257574" anchor-label="draw" id="-284548950%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="draw.html"><span><span>draw</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-284548950%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="draw.html"><span class="token function">draw</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://maven.fabricmc.net/docs/yarn-1.20.4+build.3/net/minecraft/client/gui/DrawContext.html">DrawContext</a><span class="token punctuation">, </span></span><span class="parameter ">manager<span class="token operator">: </span><a href="https://maven.fabricmc.net/docs/yarn-1.20.4+build.3/net/minecraft/client/toast/ToastManager.html">ToastManager</a><span class="token punctuation">, </span></span><span class="parameter ">startTime<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://maven.fabricmc.net/docs/yarn-1.20.4+build.3/net/minecraft/client/toast/Toast.Visibility.html">Toast.Visibility</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-492819673%2FFunctions%2F2012257574" anchor-label="getHeight" id="-492819673%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-height.html"><span>get</span><wbr></wbr><span><span>Height</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-492819673%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="get-height.html"><span class="token function">getHeight</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1777403930%2FFunctions%2F2012257574" anchor-label="getWidth" id="-1777403930%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-width.html"><span>get</span><wbr></wbr><span><span>Width</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1777403930%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="get-width.html"><span class="token function">getWidth</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1682462183%2FFunctions%2F2012257574" anchor-label="show" id="-1682462183%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="show.html"><span><span>show</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1682462183%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="show.html"><span class="token function">show</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">Toast</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

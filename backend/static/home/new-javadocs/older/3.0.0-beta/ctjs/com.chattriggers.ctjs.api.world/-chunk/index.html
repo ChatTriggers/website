@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Chunk</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script>
+<link href="../../../styles/multimodule.css" rel="Stylesheet">
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>ctjs</span>
+            </a>
+    </div>
+    <div>
+<dokka-template-command data="{&quot;@class&quot;:&quot;org.jetbrains.dokka.base.templating.ReplaceVersionsCommand&quot;,&quot;location&quot;:&quot;ctjs/com.chattriggers.ctjs.api.world/-chunk/index.html&quot;}"><div class="versions-dropdown">
+  <div class="versions-dropdown-button">2.2.0-1.8.9</div>
+  <div class="versions-dropdown-data"><a href="../../../../../not-found-version.html?v=3.0.0-beta">3.0.0-beta</a><a href="index.html">2.2.0-1.8.9</a></div>
+</div>
+</dokka-template-command>    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":1.20.4-fabric:dokkaHtml/main">jvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="ctjs::com.chattriggers.ctjs.api.world/Chunk///PointingToDeclaration//2012257574">
+  <div class="breadcrumbs"><a href="../../../index.html">ctjs</a><span class="delimiter">/</span><a href="../index.html">com.chattriggers.ctjs.api.world</a><span class="delimiter">/</span><span class="current">Chunk</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Chunk</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">Chunk</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>mcValue<span class="token operator">: </span><a href="../../com.chattriggers.ctjs/index.html#-85771647%2FClasslikes%2F2012257574">MCChunk</a></span></span><span class="token punctuation">)</span> : <a href="../../com.chattriggers.ctjs.api/-c-t-wrapper/index.html">CTWrapper</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../com.chattriggers.ctjs/index.html#-85771647%2FClasslikes%2F2012257574">MCChunk</a><span class="token operator">&gt; </span></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-706052133%2FConstructors%2F2012257574" anchor-label="Chunk" id="-706052133%2FConstructors%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-chunk.html"><span><span>Chunk</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-706052133%2FConstructors%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mcValue<span class="token operator">: </span><a href="../../com.chattriggers.ctjs/index.html#-85771647%2FClasslikes%2F2012257574">MCChunk</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="730658171%2FProperties%2F2012257574" anchor-label="mcValue" id="730658171%2FProperties%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mc-value.html"><span>mc</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="730658171%2FProperties%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="mc-value.html">mcValue</a><span class="token operator">: </span><a href="../../com.chattriggers.ctjs/index.html#-85771647%2FClasslikes%2F2012257574">MCChunk</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="98499507%2FFunctions%2F2012257574" anchor-label="getAllBlockEntities" id="98499507%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-all-block-entities.html"><span>get</span><wbr><span>All</span><wbr><span>Block</span><wbr><span><span>Entities</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="98499507%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-all-block-entities.html"><span class="token function">getAllBlockEntities</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../com.chattriggers.ctjs.api.entity/-block-entity/index.html">BlockEntity</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Gets every block entity in this chunk</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2134023448%2FFunctions%2F2012257574" anchor-label="getAllBlockEntitiesOfType" id="2134023448%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-all-block-entities-of-type.html"><span>get</span><wbr><span>All</span><wbr><span>Block</span><wbr><span>Entities</span><wbr><span>Of</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2134023448%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-all-block-entities-of-type.html"><span class="token function">getAllBlockEntitiesOfType</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">clazz<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../com.chattriggers.ctjs.api.entity/-block-entity/index.html">BlockEntity</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Gets every block entity in this chunk of a certain class</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1330225928%2FFunctions%2F2012257574" anchor-label="getAllEntities" id="-1330225928%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-all-entities.html"><span>get</span><wbr><span>All</span><wbr><span><span>Entities</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1330225928%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-all-entities.html"><span class="token function">getAllEntities</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../com.chattriggers.ctjs.api.entity/-entity/index.html">Entity</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Gets every entity in this chunk</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1212719857%2FFunctions%2F2012257574" anchor-label="getAllEntitiesOfType" id="-1212719857%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-all-entities-of-type.html"><span>get</span><wbr><span>All</span><wbr><span>Entities</span><wbr><span>Of</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1212719857%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-all-entities-of-type.html"><span class="token function">getAllEntitiesOfType</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">clazz<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html">Class</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../com.chattriggers.ctjs/index.html#-1139250895%2FClasslikes%2F2012257574">MCEntity</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../com.chattriggers.ctjs.api.entity/-entity/index.html">Entity</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Gets every entity in this chunk of a certain class</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1941761725%2FFunctions%2F2012257574" anchor-label="getMinBlockX" id="1941761725%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-min-block-x.html"><span>get</span><wbr><span>Min</span><wbr><span>Block</span><wbr><span><span>X</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1941761725%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-min-block-x.html"><span class="token function">getMinBlockX</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Gets the minimum x coordinate of a block in the chunk</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2003801339%2FFunctions%2F2012257574" anchor-label="getMinBlockZ" id="2003801339%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-min-block-z.html"><span>get</span><wbr><span>Min</span><wbr><span>Block</span><wbr><span><span>Z</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2003801339%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-min-block-z.html"><span class="token function">getMinBlockZ</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Gets the minimum z coordinate of a block in the chunk</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-409314814%2FFunctions%2F2012257574" anchor-label="getX" id="-409314814%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-x.html"><span>get</span><wbr><span><span>X</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-409314814%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-x.html"><span class="token function">getX</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Gets the x position of the chunk</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-347275200%2FFunctions%2F2012257574" anchor-label="getZ" id="-347275200%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-z.html"><span>get</span><wbr><span><span>Z</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-347275200%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-z.html"><span class="token function">getZ</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Gets the z position of the chunk</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+

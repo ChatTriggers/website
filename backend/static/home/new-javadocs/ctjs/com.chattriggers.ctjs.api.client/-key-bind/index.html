@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>KeyBind</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+<link href="../../../styles/multimodule.css" rel="Stylesheet">
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>ctjs</span>
+            </a>
+    </div>
+    <div>
+<dokka-template-command data="{&quot;@class&quot;:&quot;org.jetbrains.dokka.base.templating.ReplaceVersionsCommand&quot;,&quot;location&quot;:&quot;ctjs/com.chattriggers.ctjs.api.client/-key-bind/index.html&quot;}"><div class="versions-dropdown">
+  <div class="versions-dropdown-button">3.0.0-beta</div>
+  <div class="versions-dropdown-data"><a href="index.html">3.0.0-beta</a><a href="../../../not-found-version.html?v=2.2.0-1.8.9">2.2.0-1.8.9</a></div>
+</div>
+</dokka-template-command>    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":1.20.4-fabric:dokkaHtml/main">jvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="ctjs::com.chattriggers.ctjs.api.client/KeyBind///PointingToDeclaration//2012257574">
+  <div class="breadcrumbs"><a href="../../../index.html">ctjs</a><span class="delimiter">/</span><a href="../index.html">com.chattriggers.ctjs.api.client</a><span class="delimiter">/</span><span class="current">KeyBind</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Key</span><wbr></wbr><span><span>Bind</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">KeyBind</a></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-2022963328%2FConstructors%2F2012257574" anchor-label="KeyBind" id="-2022963328%2FConstructors%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-key-bind.html"><span>Key</span><wbr></wbr><span><span>Bind</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2022963328%2FConstructors%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a></div></div><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">description<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">keyCode<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">category<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">&quot;ChatTriggers&quot;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Creates a new keybind, editable in the user's controls.</p></div><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">keyBinding<span class="token operator">: </span><a href="https://maven.fabricmc.net/docs/yarn-1.20.4+build.3/net/minecraft/client/option/KeyBinding.html">KeyBinding</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="1376143265%2FClasslikes%2F2012257574" anchor-label="Companion" id="1376143265%2FClasslikes%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1376143265%2FClasslikes%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a> : <span data-unresolved-link="com.chattriggers.ctjs.internal.utils/Initializer///PointingToDeclaration/">Initializer</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1722364710%2FFunctions%2F2012257574" anchor-label="getCategory" id="1722364710%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-category.html"><span>get</span><wbr></wbr><span><span>Category</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1722364710%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-category.html"><span class="token function">getCategory</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Gets the category of the key.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-278680774%2FFunctions%2F2012257574" anchor-label="getDescription" id="-278680774%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-description.html"><span>get</span><wbr></wbr><span><span>Description</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-278680774%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-description.html"><span class="token function">getDescription</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Gets the description of the key.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1164511434%2FFunctions%2F2012257574" anchor-label="getKeyCode" id="1164511434%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-key-code.html"><span>get</span><wbr></wbr><span>Key</span><wbr></wbr><span><span>Code</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1164511434%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-key-code.html"><span class="token function">getKeyCode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief "><p class="paragraph">Gets the key code of the key.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1359177949%2FFunctions%2F2012257574" anchor-label="isKeyDown" id="-1359177949%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-key-down.html"><span>is</span><wbr></wbr><span>Key</span><wbr></wbr><span><span>Down</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1359177949%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-key-down.html"><span class="token function">isKeyDown</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns true if the key is pressed (used for continuous querying).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1727971902%2FFunctions%2F2012257574" anchor-label="isPressed" id="-1727971902%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-pressed.html"><span>is</span><wbr></wbr><span><span>Pressed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1727971902%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-pressed.html"><span class="token function">isPressed</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Returns true on the initial key press. For continuous querying use <a href="is-key-down.html">isKeyDown</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-590761251%2FFunctions%2F2012257574" anchor-label="registerKeyDown" id="-590761251%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="register-key-down.html"><span>register</span><wbr></wbr><span>Key</span><wbr></wbr><span><span>Down</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-590761251%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="register-key-down.html"><span class="token function">registerKeyDown</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">method<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">KeyBind</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1147500742%2FFunctions%2F2012257574" anchor-label="registerKeyPress" id="-1147500742%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="register-key-press.html"><span>register</span><wbr></wbr><span>Key</span><wbr></wbr><span><span>Press</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1147500742%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="register-key-press.html"><span class="token function">registerKeyPress</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">method<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">KeyBind</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-475016906%2FFunctions%2F2012257574" anchor-label="registerKeyRelease" id="-475016906%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="register-key-release.html"><span>register</span><wbr></wbr><span>Key</span><wbr></wbr><span><span>Release</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-475016906%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="register-key-release.html"><span class="token function">registerKeyRelease</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">method<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">KeyBind</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1567293590%2FFunctions%2F2012257574" anchor-label="setState" id="1567293590%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-state.html"><span>set</span><wbr></wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1567293590%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-state.html"><span class="token function">setState</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">pressed<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Sets the state of the key.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1652263060%2FFunctions%2F2012257574" anchor-label="toString" id="1652263060%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-string.html"><span>to</span><wbr></wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1652263060%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="to-string.html"><span class="token function">toString</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-31037131%2FFunctions%2F2012257574" anchor-label="unregisterKeyDown" id="-31037131%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="unregister-key-down.html"><span>unregister</span><wbr></wbr><span>Key</span><wbr></wbr><span><span>Down</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-31037131%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="unregister-key-down.html"><span class="token function">unregisterKeyDown</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">KeyBind</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-672371648%2FFunctions%2F2012257574" anchor-label="unregisterKeyPress" id="-672371648%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="unregister-key-press.html"><span>unregister</span><wbr></wbr><span>Key</span><wbr></wbr><span><span>Press</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-672371648%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="unregister-key-press.html"><span class="token function">unregisterKeyPress</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">KeyBind</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-197481604%2FFunctions%2F2012257574" anchor-label="unregisterKeyRelease" id="-197481604%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="unregister-key-release.html"><span>unregister</span><wbr></wbr><span>Key</span><wbr></wbr><span><span>Release</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-197481604%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="unregister-key-release.html"><span class="token function">unregisterKeyRelease</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">KeyBind</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

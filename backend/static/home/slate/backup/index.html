@@ -1,0 +1,1425 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>ct.js Tutorial</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-e033bdd3.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="index" data-languages="[&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-d5522c8f.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#setup" class="toc-h1 toc-link" data-title="Setup">Setup</a>
+          </li>
+          <li>
+            <a href="#creating-a-module" class="toc-h1 toc-link" data-title="Creating a module">Creating a module</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#the-metadata-file" class="toc-h2 toc-link" data-title="The metadata file">The metadata file</a>
+                  </li>
+                  <li>
+                    <a href="#scripting" class="toc-h2 toc-link" data-title="Scripting">Scripting</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#the-basics" class="toc-h1 toc-link" data-title="The Basics">The Basics</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#registering-a-trigger" class="toc-h2 toc-link" data-title="Registering a Trigger">Registering a Trigger</a>
+                  </li>
+                  <li>
+                    <a href="#trigger-arguments" class="toc-h2 toc-link" data-title="Trigger arguments">Trigger arguments</a>
+                  </li>
+                  <li>
+                    <a href="#module-organization" class="toc-h2 toc-link" data-title="Module Organization">Module Organization</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#chatlib" class="toc-h1 toc-link" data-title="ChatLib">ChatLib</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#sending-messages" class="toc-h2 toc-link" data-title="Sending messages">Sending messages</a>
+                  </li>
+                  <li>
+                    <a href="#message-objects" class="toc-h2 toc-link" data-title="Message objects">Message objects</a>
+                  </li>
+                  <li>
+                    <a href="#message-ids" class="toc-h2 toc-link" data-title="Message IDs">Message IDs</a>
+                  </li>
+                  <li>
+                    <a href="#editing-chat" class="toc-h2 toc-link" data-title="Editing chat">Editing chat</a>
+                  </li>
+                  <li>
+                    <a href="#specially-formatted-messages" class="toc-h2 toc-link" data-title="Specially formatted messages">Specially formatted messages</a>
+                  </li>
+                  <li>
+                    <a href="#chat-message-from-event" class="toc-h2 toc-link" data-title="Chat message from event">Chat message from event</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#rendering" class="toc-h1 toc-link" data-title="Rendering">Rendering</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#setting-up" class="toc-h2 toc-link" data-title="Setting up">Setting up</a>
+                  </li>
+                  <li>
+                    <a href="#setting-priority" class="toc-h2 toc-link" data-title="Setting priority">Setting priority</a>
+                  </li>
+                  <li>
+                    <a href="#simple-text-rendering" class="toc-h2 toc-link" data-title="Simple text rendering">Simple text rendering</a>
+                  </li>
+                  <li>
+                    <a href="#more-complex-text-rendering" class="toc-h2 toc-link" data-title="More complex text rendering">More complex text rendering</a>
+                  </li>
+                  <li>
+                    <a href="#rendering-of-shapes" class="toc-h2 toc-link" data-title="Rendering of shapes">Rendering of shapes</a>
+                  </li>
+                  <li>
+                    <a href="#rendering-images" class="toc-h2 toc-link" data-title="Rendering images">Rendering images</a>
+                  </li>
+                  <li>
+                    <a href="#advanced-rendering" class="toc-h2 toc-link" data-title="Advanced rendering">Advanced rendering</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#tessellator" class="toc-h1 toc-link" data-title="Tessellator">Tessellator</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#drawing-text" class="toc-h2 toc-link" data-title="Drawing Text">Drawing Text</a>
+                  </li>
+                  <li>
+                    <a href="#drawing-textures" class="toc-h2 toc-link" data-title="Drawing Textures">Drawing Textures</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#objects" class="toc-h1 toc-link" data-title="Objects">Objects</a>
+          </li>
+          <li>
+            <a href="#books" class="toc-h1 toc-link" data-title="Books">Books</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creation" class="toc-h2 toc-link" data-title="Creation">Creation</a>
+                  </li>
+                  <li>
+                    <a href="#adding-content" class="toc-h2 toc-link" data-title="Adding content">Adding content</a>
+                  </li>
+                  <li>
+                    <a href="#updating-content" class="toc-h2 toc-link" data-title="Updating content">Updating content</a>
+                  </li>
+                  <li>
+                    <a href="#displaying" class="toc-h2 toc-link" data-title="Displaying">Displaying</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#cps" class="toc-h1 toc-link" data-title="CPS">CPS</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#clicks-per-second" class="toc-h2 toc-link" data-title="Clicks per second">Clicks per second</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#displays" class="toc-h1 toc-link" data-title="Displays">Displays</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creation-2" class="toc-h2 toc-link" data-title="Creation">Creation</a>
+                  </li>
+                  <li>
+                    <a href="#adding-content-2" class="toc-h2 toc-link" data-title="Adding content">Adding content</a>
+                  </li>
+                  <li>
+                    <a href="#setting-content" class="toc-h2 toc-link" data-title="Setting content">Setting content</a>
+                  </li>
+                  <li>
+                    <a href="#setting-positioning" class="toc-h2 toc-link" data-title="Setting positioning">Setting positioning</a>
+                  </li>
+                  <li>
+                    <a href="#setting-background-and-foreground-options" class="toc-h2 toc-link" data-title="Setting background and foreground options">Setting background and foreground options</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#guis" class="toc-h1 toc-link" data-title="Guis">Guis</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creation-3" class="toc-h2 toc-link" data-title="Creation">Creation</a>
+                  </li>
+                  <li>
+                    <a href="#rendering-the-gui" class="toc-h2 toc-link" data-title="Rendering the gui">Rendering the gui</a>
+                  </li>
+                  <li>
+                    <a href="#adding-interactivity" class="toc-h2 toc-link" data-title="Adding interactivity">Adding interactivity</a>
+                  </li>
+                  <li>
+                    <a href="#displaying-the-gui" class="toc-h2 toc-link" data-title="Displaying the gui">Displaying the gui</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#inventory" class="toc-h1 toc-link" data-title="Inventory">Inventory</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#example" class="toc-h2 toc-link" data-title="Example">Example</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#keybinds" class="toc-h1 toc-link" data-title="KeyBinds">KeyBinds</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creation-4" class="toc-h2 toc-link" data-title="Creation">Creation</a>
+                  </li>
+                  <li>
+                    <a href="#using-the-keybind" class="toc-h2 toc-link" data-title="Using the keybind">Using the keybind</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#player" class="toc-h1 toc-link" data-title="Player">Player</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#location" class="toc-h2 toc-link" data-title="Location">Location</a>
+                  </li>
+                  <li>
+                    <a href="#lookingat" class="toc-h2 toc-link" data-title="LookingAt">LookingAt</a>
+                  </li>
+                  <li>
+                    <a href="#health" class="toc-h2 toc-link" data-title="Health">Health</a>
+                  </li>
+                  <li>
+                    <a href="#armor" class="toc-h2 toc-link" data-title="Armor">Armor</a>
+                  </li>
+                  <li>
+                    <a href="#getting-inventory-information" class="toc-h2 toc-link" data-title="Getting Inventory information">Getting Inventory information</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href='http://chattriggers.com'>ChatTriggers Website</a></li>
+            <li><a href='https://discordapp.com/invite/0fNjZyopOvBHZyG8'>ChatTriggers Discord</a></li>
+            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>ct.js is a framework for Minecraft Forge that allows for mods to be scripted, in
+languages such as JavaScript. Scripts are able to be hot reloaded, which means
+you can make changes to your mod without restarting!</p>
+
+<aside class="warning">
+  Currently, only JavaScript is supported.
+</aside>
+
+<p>JavaScript scripts are executed with our custom fork of Mozilla&#39;s
+<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino">Rhino</a>
+library. Our custom fork supports many ES6 and ESNEXT features. For the (almost)
+full feature list,check our
+<a href="https://chattriggers.github.io/rhino/">compatibility table</a>;</p>
+
+<aside class="warning">
+  Some of this documentation may be out of date or incomplete.
+</aside>
+<h1 id='setup'>Setup</h1>
+<p>To setup ct.js, all you have to do is put the ct.js jar into your <code>mods</code> folder,
+and launch Minecraft. By default, ct.js modules are stored in
+<code>.minecraft/config/ChatTriggers/modules/</code>, but this can be changed in the
+configuration. To access the ct.js settings, type <code>/ct settings</code> in game. The
+rest of this tutorial will refer to this directory as the &quot;modules directory&quot;,
+and will assume it is in the default location.</p>
+<h1 id='creating-a-module'>Creating a module</h1>
+<p>To create a module, create a folder in your modules folder. The folder can have
+whatever name you want, but typically it is just the name of the module. Our
+module will be called ExampleModule. Our folder structure now looks like
+<code>.minecraft/config/ChatTriggers/modules/ExampleModule</code>.</p>
+<h2 id='the-metadata-file'>The metadata file</h2>
+<blockquote>
+<p>An example <code>metadata.json</code> file</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ExampleModule"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"creator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YourNameHere"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Our first module!"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"entry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"index.js"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>All modules MUST have a <code>metadata.json</code> file.
+This file contains important information about our module. You can see an
+example of this file to the right. The metadata file contains a number of
+important fields, documented here:</p>
+
+<ul>
+<li><code>name</code>: The name of the module</li>
+<li><code>creator</code>: The name of the module creator</li>
+<li><code>version</code>: The version of the module. This should conform to
+<a href="https://semver.org/">SEMVER</a></li>
+<li><code>entry</code>: This is the name of a file that should actually be ran. This key is
+necessary if, for example, your module registers triggers or commands. This field is
+<strong>REQUIRED</strong> for all modules that wish to run code, without it your module will NOT run.
+If all your module provides is a library that other modules can use, this is not needed.</li>
+<li><code>requires</code>: An array of names of other modules that your module depends on.
+These modules are guaranteed to be loaded before your module, allowing you to
+use them directly.</li>
+<li><code>asmEntry</code> and <code>asmExposedFunctions</code>: These will be discussed later in the ASM
+section</li>
+</ul>
+<h2 id='scripting'>Scripting</h2>
+<p>We now need to create our script files. Typically, the root file of your module
+is named <code>index.js</code>. This is a general web development practice. You can name
+your files whatever your want, however one benefit of having an <code>index.js</code> file
+is that if someone tries to import from your module folder directly, instead of
+a specific file in your module, it will be imported from the <code>index.js</code> file, if
+one exists. If no <code>index.js</code> file exists, other people will have to import
+directly from the files themselves.</p>
+<h1 id='the-basics'>The Basics</h1><h2 id='registering-a-trigger'>Registering a Trigger</h2>
+<blockquote>
+<p>We register a WorldLoad trigger like so:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">worldLoad</span><span class="dl">"</span><span class="p">,</span> <span class="nx">exampleWorldLoad</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>The argument passed into the register function is the function you want to trigger:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">function</span> <span class="nx">exampleWorldLoad</span><span class="p">()</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">worldLoad</span><span class="dl">"</span><span class="p">,</span> <span class="nx">exampleWorldLoad</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>You can also register an anonymous function for simplicity:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">worldLoad</span><span class="dl">"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+<span class="p">});</span>
+</code></pre></div>
+<p>In ctjs, &quot;triggers&quot; are events that get fired
+when a certain action happens in game, like a sound being played or a chat
+message being sent. Let&#39;s start with one of the simplest triggers: WorldLoad. In
+order to register a trigger, we use the provided <code>register</code> function. It takes
+the trigger name as the first argument (case-insensitive), and the function to
+run as the second argument. You can see a complete list of these triggers on our
+<a href="https://www.chattriggers.com/javadocs/com/chattriggers/ctjs/engine/IRegister.html">javadocs, under <code>IRegister</code></a>.</p>
+
+<aside class="notice">
+  To convert an IRegister name to a trigger name, just remove the "register" from the beginning of the method name.
+</aside>
+
+<p>Now any code inside of our <code>exampleWorldLoad</code> trigger will be ran whenever a world is loaded. From here, you
+can do many things, such as interacting with Minecraft methods or getting information from arguments that
+certain triggers may pass in.</p>
+
+<aside class="notice">
+  You can register as many triggers as you want, and you can even use the same function in multiple different triggers.
+</aside>
+<h2 id='trigger-arguments'>Trigger arguments</h2>
+<blockquote>
+<p>Preparing a trigger to intercept messages</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">'</span><span class="s1">messageSent</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// TODO</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Display &quot;Pong!&quot; in response to a message sent containing &quot;ping&quot;</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">'</span><span class="s1">messageSent</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">contains</span><span class="p">(</span><span class="dl">'</span><span class="s1">ping</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="dl">'</span><span class="s1">Pong!</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>In addition to letting you know when an event has occurred by calling your function, many triggers pass through additional information about their respective event. Let&#39;s take a look at a different trigger: MessageSent. This trigger is fired whenever a player sends a message.</p>
+
+<p>Let&#39;s make a trigger that, whenever the player sent a message with the word &quot;ping&quot;, displays the message &quot;Pong!&quot;. In order to do this, we need to accept the arguments passed in by the MessageSent trigger. You can see all the arguments that a trigger passes through in the javadocs linked above. The MessageSent trigger passes in the message event and the actual message.</p>
+
+<p>Many triggers are <em>cancellable</em>, meaning that they actually fire <em>before</em> the event in question happens. In our case, our MessageSent trigger will fire before the chat message is actually sent. Cancelling the event is as easy as calling <code>cancel(event)</code>, however we won&#39;t do that here.</p>
+
+<p>We are interested in the message parameter. We simply check if it contains the word we are interested in, and if so, we use the <code>ChatLib</code> utility to send a message only visible to the player. You can read more about the <code>ChatLib</code> utility <a href="#ChatLib">here</a></p>
+<h2 id='module-organization'>Module Organization</h2>
+<blockquote>
+<p>ES6 style import syntax (preferred)</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript"><code><span class="c1">// This imports a function from WhereAmI's index file, you could specify additional files i.e. WhereAmI/otherfile</span>
+<span class="c1">// You can also import from other files within the current module using local file paths</span>
+<span class="c1">// ...such as ./folder/file (where folder resides within WhereAmI)</span>
+<span class="k">import</span> <span class="nx">playerLocation</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">WhereAmi</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div>
+<blockquote>
+<p>Node style require syntax</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript"><code><span class="c1">// This imports a function from another module, called WhereAmI, to get a players location</span>
+<span class="kd">let</span> <span class="nx">playerLocation</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">WhereAmI/index</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div>
+<p>When making a module, it is important to know how ct.js loads your files so you can organize them efficiently. When your module is loaded, only the file specified as the entry in <code>metadata.json</code> is loaded. Any other code you want to run must be imported, through the <code>require</code> syntax, or ES6 style <code>import</code> syntax.</p>
+
+<aside class="warning">In order to use variables and functions defined in other modules, you must list those module names in your module's <code>requires</code> array in the <code>metadata.json</code> file, and then import them as needed</aside>
+<h1 id='chatlib'>ChatLib</h1>
+<p>The ChatLib is a utility provided to imports for interacting with Minecraft chat. It has functionality to send, edit,
+and delete messages in Minecraft&#39;s chat. You can create clickable, and hoverable, text in chat, run commands, and much
+more.</p>
+<h2 id='sending-messages'>Sending messages</h2>
+<blockquote>
+<p>This sends a message in chat</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="dl">"</span><span class="s2">Coming from the code!</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>This first example shows how to display a basic chat message. This message differs from normal messages in that it does NOT trigger chat triggers. It is also not visible to other players.</p>
+<h2 id='message-objects'>Message objects</h2>
+<blockquote>
+<p>This example sends messages that have clickable and hoverable text</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">clickableMessage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Message</span><span class="p">(</span>
+  <span class="dl">"</span><span class="s2">This is not clickable. </span><span class="dl">"</span><span class="p">,</span>
+   <span class="k">new</span> <span class="nx">TextComponent</span><span class="p">(</span><span class="dl">"</span><span class="s2">This is clickable</span><span class="dl">"</span><span class="p">).</span><span class="nx">setClick</span><span class="p">(</span><span class="dl">"</span><span class="s2">run_command</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">/help</span><span class="dl">"</span><span class="p">),</span>
+    <span class="dl">"</span><span class="s2">!</span><span class="dl">"</span>
+<span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">hoverableMessage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TextComponent</span><span class="p">(</span><span class="dl">"</span><span class="s2">This message does nothing when clicked.</span><span class="dl">"</span><span class="p">).</span><span class="nx">setHoverValue</span><span class="p">(</span><span class="dl">"</span><span class="s2">But it shows this text when hovered over!</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="nx">clickableMessage</span><span class="p">);</span>
+<span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="nx">hoverableMessage</span><span class="p">);</span>
+</code></pre></div>
+<p>Here we are creating new Message objects. These are required to send messages that have clickable or hoverable text.
+The constructor of a Message can take as many <code>String</code>s or <code>TextComponent</code>s as you want, simply separate them with commas as shown in the first example. </p>
+
+<p>TextComponents are nice little wrappers that allow you to customize a small chunk of a message. You can change what happens when you click or hover on the message. You can also directly send a TextComponent as seen with the hoverable message. All of these can use formatting codes with the <code>&amp;</code> symbol.</p>
+<h3 id='clickables'>Clickables</h3>
+<p>The first message we create is a message that has clickable, and non-clickable, text. The first part is regular text,
+followed by a clickable part that runs the <code>/help</code> command when clicked, and shows the hoverText when the mouse is
+hovering over that part of the message. Then, at the end, it has a non-clickable exclamation point.</p>
+<h3 id='hovers'>Hovers</h3>
+<p>The second message created and chatted is a message that only contains a hoverable message. Nothing will be activated
+or ran when the message is clicked.</p>
+
+<aside class="notice">You can also use <code>Message#setRecursive(boolean)</code> to make Messages non-recursive.</aside>
+<h2 id='message-ids'>Message IDs</h2>
+<blockquote>
+<p>This is how you send a chat message with an ID, and then delete it</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="k">new</span> <span class="nx">Message</span><span class="p">(</span><span class="dl">"</span><span class="s2">This will be deleted!</span><span class="dl">"</span><span class="p">).</span><span class="nx">setChatLineId</span><span class="p">(</span><span class="mi">5050</span><span class="p">).</span><span class="nx">chat</span><span class="p">();</span>
+
+<span class="nx">ChatLib</span><span class="p">.</span><span class="nx">clearChat</span><span class="p">(</span><span class="mi">5050</span><span class="p">);</span>
+</code></pre></div>
+<p>Every message can have an ID specified, which can then be deleted from chat. This is best suited for auto-replacing menus,
+chat messages you only want to display in chat for a certain amount of time, etc.</p>
+
+<p>This example also showcases an alternative method of chatting a Message, as there is a simple helper method, <code>Message#chat()</code></p>
+
+<p>Only one chat message can have the same ID, as it will replace any messages with the same ID before sending.
+The ID is specified in the message object, and you pass the same ID to <code>ChatLib.clearChat(id)</code> to delete it.</p>
+
+<aside class="notice">Doing <code>ChatLib.clearChat()</code> will delete all messages in chat, no matter the ID</aside>
+<h2 id='editing-chat'>Editing chat</h2>
+<blockquote>
+<p>This is how you edit a chat message after it has been sent to chat</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hey there! This will change...</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">ChatLib</span><span class="p">.</span><span class="nx">editChat</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hey there! This will change...</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">And... changed!</span><span class="dl">"</span><span class="p">)</span>
+</code></pre></div>
+<p><code>ChatLib.editChat(message, replacer)</code> is a simple method that takes in an unformatted message and replaces all instances of it with the replacer. This is a <em>slightly</em> laggy operation if done extremely rapidly (i.e. around 60 times per second). The <code>editChat</code> method can also take the Message ID as the first argument.</p>
+<h2 id='specially-formatted-messages'>Specially formatted messages</h2>
+<blockquote>
+<p>This is how you center a chat message</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="nx">ChatLib</span><span class="p">.</span><span class="nx">getCenteredText</span><span class="p">(</span><span class="dl">"</span><span class="s2">This is in the center of the chat!</span><span class="dl">"</span><span class="p">));</span>
+</code></pre></div>
+<blockquote>
+<p>This is how you make a line break</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="nx">ChatLib</span><span class="p">.</span><span class="nx">getChatBreak</span><span class="p">(</span><span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="p">));</span>
+</code></pre></div><h3 id='centered-messages'>Centered messages</h3>
+<p>To center a message in chat (padded by spaces), use the <code>ChatLib.getCenteredText(text)</code> method, and then chat what&#39;s
+returned.</p>
+
+<aside class="warning">This is a <i>marginally</i> intensive operation, so if you can store this in a variable and re-use it, that's
+preferable.</aside>
+<h3 id='line-breaks'>Line breaks</h3>
+<p>To create a line break in chat that will be the exact length of the chat box no matter the user&#39;s width and size
+settings, use the <code>ChatLib.getChatBreak(seperator)</code> method. This can take any seperator, like &quot;-&quot; as we used in the
+example.</p>
+
+<aside class="success">Any length string can be used as the seperator, such as "seperate". However, because this is a long
+string, there will be a gap at the end where another use of the string will not fit</aside>
+<h2 id='chat-message-from-event'>Chat message from event</h2>
+<blockquote>
+<p>This is how you get the unformatted message from a chat event</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">function</span> <span class="nx">onChatReceived</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">unformattedMessage</span> <span class="o">=</span> <span class="nx">ChatLib</span><span class="p">.</span><span class="nx">getChatMessage</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>This is how you get the formatted message from a chat event</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">function</span> <span class="nx">onChatReceived</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">formattedMessage</span> <span class="o">=</span> <span class="nx">ChatLib</span><span class="p">.</span><span class="nx">getChatMessage</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><h3 id='unformatted-chat'>Unformatted chat</h3>
+<p>To get the unformatted chat from a chat event passed into a function by a Chat Trigger, pass it to the
+<code>ChatLib.getChatMessage(event)</code> method, which returns an unformatted string.</p>
+<h3 id='formatted-chat'>Formatted chat</h3>
+<p>However, if you want the formatted version of the chat message, append the <code>true</code> flag to the
+<code>ChatLib.getChatMessage(event, formatted</code>) method.</p>
+<h1 id='rendering'>Rendering</h1>
+<p>Rendering is where modules can draw most anything on to the game screen. All 2D rendering involves
+calling methods in the <code>Renderer</code> object. 3D rendering involves calling methods in the
+<a href="#tessellator"><code>Tessellator</code></a> object.</p>
+
+<aside class="notice">All 2D rendering coordinates start at the top left of the screen. X increases from left to right, and Y increases from top to bottom.</aside>
+<h2 id='setting-up'>Setting up</h2>
+<blockquote>
+<p>Function to be ran everytime the game overlay is rendered</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">renderOverlay</span><span class="dl">"</span><span class="p">,</span> <span class="nx">myRenderOverlay</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">myRenderOverlay</span><span class="p">()</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p>Rendering has to be done every frame of the game, otherwise it will only be on the screen for one frame. There are many different render triggers, and they all start with <code>Render</code>. The most common render trigger is RenderOverlay: this trigger fires every frame with no conditions.</p>
+<h2 id='setting-priority'>Setting priority</h2>
+<blockquote>
+<p>It is possible to set a certain trigger&#39;s priority like so</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">renderOverlay</span><span class="dl">"</span><span class="p">,</span> <span class="nx">myRenderOverlayLast</span><span class="p">).</span><span class="nx">setPriority</span><span class="p">(</span><span class="nx">Priority</span><span class="p">.</span><span class="nx">LOWEST</span><span class="p">);</span>
+<span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">renderOverlay</span><span class="dl">"</span><span class="p">,</span> <span class="nx">myRenderOverlayFirst</span><span class="p">).</span><span class="nx">setPriority</span><span class="p">(</span><span class="nx">Priority</span><span class="p">.</span><span class="nx">HIGHEST</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">myRenderOverlayLast</span><span class="p">()</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">myRenderOverlayFirst</span><span class="p">()</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div>
+<p>Here, were are dealing with the priority of triggers. Priorities are <code>LOWEST, LOW, NORMAL, HIGH, HIGHEST</code>.
+Triggers with a priority of HIGHEST are ran first, because they have first say on an event. Triggers with a priority of LOWEST are ran last. The function lan rast will draw on TOP of anything before it.</p>
+
+<aside class="notice">All trigger types can have a priority set, it's just most commonly used in rendering</aside>
+<h2 id='simple-text-rendering'>Simple text rendering</h2>
+<blockquote>
+<p>You can render text onto the screen with this code</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">renderOverlay</span><span class="dl">"</span><span class="p">,</span> <span class="nx">myRenderOverlay</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">myRenderOverlay</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">Renderer</span><span class="p">.</span><span class="nx">drawString</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello World!</span><span class="dl">"</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Every frame, the code inside <code>myRenderOverlay</code> is called. Inside of this function, we make one call
+to <code>Renderer.drawString(text, screenX, screenY)</code>. We make the text say &quot;Hello World!&quot;, and place it on the screen
+at 10, 10 (the top left corner).</p>
+
+<aside class="warning">If all you are rendering is text, it is preferable to use `Display` objects, covered <a href="#displays">later</a>.</aside>
+<h2 id='more-complex-text-rendering'>More complex text rendering</h2>
+<blockquote>
+<p>This is how you would draw the same string (but colored) with an object</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">renderOverlay</span><span class="dl">"</span><span class="p">,</span> <span class="nx">myRenderOverlay</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">myTextObject</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Text</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello World!</span><span class="dl">"</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">).</span><span class="nx">setColor</span><span class="p">(</span><span class="nx">Renderer</span><span class="p">.</span><span class="nx">RED</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">myRenderOverlay</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">myTextObject</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Here, instead of simply making a method call, we are instatiating an object to do our drawing. This allows for much greater customization, such as rotation, scaling, and as described below, coloring.</p>
+
+<p>The other interesting part to take a look at is the call to <code>setColor</code>, which will, as you can guess, set the color of the text. For the color, we use a preset color in <code>Renderer</code>. We could have also made a call to <code>Renderer.color(red, green, blue, alpha)</code>, and subsequently passed that in to the method. In this example, that call would be <code>Renderer.color(255, 255, 255, 255)</code>. Values should range from 0-255.</p>
+
+<aside class="warning">Do not instantiate objects inside of a render trigger. Create them outside of the trigger, and if necessary, make any changes to the object inside of the trigger.</aside>
+<h2 id='rendering-of-shapes'>Rendering of shapes</h2>
+<blockquote>
+<p>This example renders a rectangle, circle, and triangle</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">renderOverlay</span><span class="dl">"</span><span class="p">,</span> <span class="nx">myRenderOverlay</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">rectangle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="nx">Renderer</span><span class="p">.</span><span class="nx">WHITE</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Shape</span><span class="p">(</span><span class="nx">Renderer</span><span class="p">.</span><span class="nx">WHITE</span><span class="p">).</span><span class="nx">setCircle</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">360</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">polygon</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Shape</span><span class="p">(</span><span class="nx">Renderer</span><span class="p">.</span><span class="nx">WHITE</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">addVertex</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">addVertex</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">addVertex</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">myRenderOverlay</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">rectangle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+  <span class="nx">circle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+  <span class="nx">polygon</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Let&#39;s look at more complex rendering using shapes. We can see our first complex piece of rendering code to the right. The first thing to notice is how we define the shapes outside of our render trigger. This way we aren&#39;t create three objects 60+ times a second.</p>
+<h3 id='the-different-shape-classes'>The different shape classes</h3>
+<p>We create the first shape, the rectangle, with the instantiation of the <code>Rectangle</code> class, whose constructor takes the following arguments: color, x, y, width, and height.</p>
+
+<p>The next shape is a circle, which we create through the more general <code>Shape</code> class, which is just a collection of (x, y) points to connect together. We use the <code>setCircle</code> method, which automatically populates the Shape&#39;s vertices to give us a perfect circle.</p>
+
+<p>Finally, we manually configure the vertices of the last shape ourselves with the <code>addVertex</code> method. After we have created all of our shapes outside of the trigger function, we call the <code>draw</code> method inside of the trigger function to render them to the screen.</p>
+<h2 id='rendering-images'>Rendering images</h2>
+<blockquote>
+<p>This example renders the images on the screen</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">renderOverlay</span><span class="dl">"</span><span class="p">,</span> <span class="nx">myRenderImageOverlay</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">(</span><span class="dl">"</span><span class="s2">ctjs-logo.png</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">http://ct.kerbybit.com/ct.js/images/logo.png</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">myRenderImageOverlay</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">image</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>As before, we register for a render overlay trigger so we can do our rendering in it. However, this time, we create an <code>Image</code> object with the file name and URL. The file will download to the ct.js assets directory, which defaults to <code>.minecraft/config/ChatTriggers/images</code>.</p>
+
+<aside class="notice">Images can also be put in /Imports/Example/assets/ for the same result, just make sure resource name is
+the name of the file, and the file has a <code>.png</code> extension.</aside>
+<h2 id='advanced-rendering'>Advanced rendering</h2>
+<blockquote>
+<p>Here we are rendering text that is a rainbow color</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">renderOverlay</span><span class="dl">"</span><span class="p">,</span> <span class="nx">myRenderOverlay</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">exampleImportStep</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">myRenderOverlay</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Text</span><span class="p">(</span><span class="dl">"</span><span class="s2">Rainbows!</span><span class="dl">"</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">).</span><span class="nx">setColor</span><span class="p">(</span><span class="nx">Renderer</span><span class="p">.</span><span class="nx">getRainbow</span><span class="p">(</span><span class="nx">exampleImportStep</span><span class="p">));</span>
+  <span class="nx">text</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+
+  <span class="nx">exampleImportStep</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This topic covers advanced rendering, like rainbow colors and dynamic positioning.</p>
+<h3 id='rainbow-colors'>Rainbow colors</h3>
+<p>Again, we setup the default rendering scheme of a RenderOverlay trigger and its corresponding function. However, this
+time we also create a &quot;exampleImportStep&quot; variable that starts of at 0. Then, every time we render to the screen, we
+increment this step variable by 1.</p>
+
+<p>This variable is used when it is passed into the <code>Renderer.getRainbow(step)</code> method, which produces rotating colors,
+which we then use as the color for the drawString method.</p>
+<h3 id='dynamic-positioning'>Dynamic positioning</h3>
+<blockquote>
+<p>This example showcases how to make render positioning dynamic</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">renderOverlay</span><span class="dl">"</span><span class="p">,</span> <span class="nx">myRenderOverlay</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">width</span> <span class="o">=</span> <span class="nx">Renderer</span><span class="p">.</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getWidth</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">rectWidth</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">textStr</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">White Text!</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">rectangle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="nx">Renderer</span><span class="p">.</span><span class="nx">WHITE</span><span class="p">,</span> <span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="nx">rectWidth</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="nx">rectWidth</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Text</span><span class="p">(</span><span class="nx">textStr</span><span class="p">,</span> <span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="nx">Renderer</span><span class="p">.</span><span class="nx">getStringWidth</span><span class="p">(</span><span class="nx">textStr</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">).</span><span class="nx">setColor</span><span class="p">(</span><span class="nx">Renderer</span><span class="p">.</span><span class="nx">WHITE</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">myRenderOverlay</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">text</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+  <span class="nx">rectangle</span><span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Here we are making all of our rendered objects be perfectly aligned horizontally on the screen for all windows sizes. We start off by getting the height of the current window, with the call to <code>Renderer.screen.getWidth()</code>.</p>
+
+<p>Then, for each part we render, we get half the width of the window, and then subtract half the width of our rendered object. For a string, this is done with <code>(width / 2) - (Renderer.getStringWidth(textToRender) / 2)</code>. For a fixed width object, you can replace <code>Renderer.getStringWidth(textToRender)</code> with the width of the object. Notice how we use the <code>Text</code> object and instantiate it outside of the render function. The <code>Text</code> object allows you to set additional properties, such as shadow and color.</p>
+<h1 id='tessellator'>Tessellator</h1>
+<p>The Tessellator object is meant for rendering in 3 dimensions. You have to call this object under the <code>renderWorld</code> trigger.</p>
+<h2 id='drawing-text'>Drawing Text</h2>
+<blockquote>
+<p>You can set floating text at specific world coordinates using <code>Tessellator.drawString(text, x, y, z)</code></p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">renderWorld</span><span class="dl">"</span><span class="p">,</span> <span class="nx">myWorldRender</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">myWorldRender</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">Tessellator</span><span class="p">.</span><span class="nx">drawString</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello there!</span><span class="dl">"</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This will draw the words &quot;Hello There&quot; at the world location <code>(100, 100, 100)</code>.
+You can also change the text color and scale, whether or not to render the shadow, and whether or not
+the size increases from distance. </p>
+<h2 id='drawing-textures'>Drawing Textures</h2>
+<blockquote>
+<p>You can also draw specific textures like so</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">renderWorld</span><span class="dl">"</span><span class="p">,</span> <span class="nx">myWorldRender</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">img</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">(</span><span class="dl">"</span><span class="s2">kerbybit.png</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">https://www.chattriggers.com/assets/images/kerbybit.png</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">myWorldRender</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">Tessellator</span><span class="p">.</span><span class="nx">bindTexture</span><span class="p">(</span><span class="nx">img</span><span class="p">);</span>
+  <span class="nx">Tessellator</span><span class="p">.</span><span class="nx">begin</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="nx">Player</span><span class="p">.</span><span class="nx">getX</span><span class="p">(),</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getY</span><span class="p">(),</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getZ</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">pos</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">).</span><span class="nx">tex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pos</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">).</span><span class="nx">tex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pos</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">).</span><span class="nx">tex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pos</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">).</span><span class="nx">tex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This will draw kerbybit&#39;s skin texture at the player&#39;s feet position. This works by first binding the texture
+of the image to the <code>Tessellator</code> object. It then associates positions in the 3D world (relative to the
+<code>Tesselator</code>&#39;s current position) to points on the texture. The <code>tex</code> function takes an <code>x</code> and
+<code>y</code> argument, both ranging from <code>0.0</code> to <code>1.0</code>, which identifies a point on the texture (i.e. 
+<code>.tex(0.3, 0.7)</code> refers to the point 30% across from the left and 70% down from the top).
+Finally, a call to <code>.draw()</code> finished the operation.</p>
+<h3 id='partial-ticks'>Partial Ticks</h3>
+<p>Partial ticks are a fractional value representing the amount of time that’s passed between the last full tick and now. This is
+useful in rendering, as the rest of the game runs on the tick system, but rendering uses frames, a much more precise operation.
+We use this because otherwise the animation would be jittery because there are fewer ticks per second than frames per second.</p>
+
+<p>If we wanted to make the example from above not be jittery, we would use partial ticks.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">function</span> <span class="nx">myWorldRender</span><span class="p">(</span><span class="nx">partialTicks</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">lastX</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Entity</span><span class="p">(</span><span class="nx">Player</span><span class="p">.</span><span class="nx">getPlayer</span><span class="p">()).</span><span class="nx">getLastX</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">lastY</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Entity</span><span class="p">(</span><span class="nx">Player</span><span class="p">.</span><span class="nx">getPlayer</span><span class="p">()).</span><span class="nx">getLastY</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">lastZ</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Entity</span><span class="p">(</span><span class="nx">Player</span><span class="p">.</span><span class="nx">getPlayer</span><span class="p">()).</span><span class="nx">getLastZ</span><span class="p">();</span>
+
+  <span class="kd">const</span> <span class="nx">currentX</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getX</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">currentY</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getY</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="nx">currentZ</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getZ</span><span class="p">();</span>
+
+  <span class="nx">Tessellator</span><span class="p">.</span><span class="nx">bindTexture</span><span class="p">(</span><span class="nx">img</span><span class="p">);</span>
+  <span class="nx">Tessellator</span><span class="p">.</span><span class="nx">begin</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">translate</span><span class="p">(</span>
+      <span class="nx">lastX</span> <span class="o">+</span> <span class="p">(</span><span class="nx">currentX</span> <span class="o">-</span> <span class="nx">lastX</span><span class="p">)</span> <span class="o">*</span> <span class="nx">partialTicks</span><span class="p">,</span>
+      <span class="nx">lastY</span> <span class="o">+</span> <span class="p">(</span><span class="nx">currentY</span> <span class="o">-</span> <span class="nx">lastY</span><span class="p">)</span> <span class="o">*</span> <span class="nx">partialTicks</span><span class="p">,</span>
+      <span class="nx">lastZ</span> <span class="o">+</span> <span class="p">(</span><span class="nx">currentZ</span> <span class="o">-</span> <span class="nx">lastZ</span><span class="p">)</span> <span class="o">*</span> <span class="nx">partialTicks</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="nx">pos</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">).</span><span class="nx">tex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pos</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">).</span><span class="nx">tex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pos</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">).</span><span class="nx">tex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pos</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">).</span><span class="nx">tex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The key difference here is that the change in position is multiplied by the change in time every frame. 
+This makes the drawing smooth since it updates every frame instead of every tick.</p>
+<h1 id='objects'>Objects</h1>
+<p>ct.js provides several objects to expand the functionality of your imports without you needing to delve into base
+Minecraft code. A list is found below.</p>
+
+<aside class="warning">It is bad practice to create new object every time you use it, they're heavy objects.
+Create one in the global scope, and refer back to it.</aside>
+
+<table><thead>
+<tr>
+<th>Object</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="#books">Book</a></td>
+<td>Makes an openable book in Minecraft</td>
+</tr>
+<tr>
+<td><a href="#cps">CPS</a></td>
+<td>Contains information about the player&#39;s clicks per second</td>
+</tr>
+<tr>
+<td><a href="#displays">Display</a></td>
+<td>Renders text on to the game screen</td>
+</tr>
+<tr>
+<td><a href="#guis">Gui</a></td>
+<td>Makes an openable gui in Minecraft</td>
+</tr>
+<tr>
+<td><a href="#inventory">Inventory</a></td>
+<td>Contains information about the player&#39;s inventory</td>
+</tr>
+<tr>
+<td><a href="#keybinds">KeyBind</a></td>
+<td>Used for detecting a key&#39;s state</td>
+</tr>
+<tr>
+<td>ParticleEffect</td>
+<td>Allows creation of custom particle effects to be displayed client side</td>
+</tr>
+<tr>
+<td><a href="#player">Player</a></td>
+<td>Used for getting information about the player</td>
+</tr>
+<tr>
+<td>Thread</td>
+<td>This is a pseudo object, used to do tasks that take a long time</td>
+</tr>
+</tbody></table>
+<h1 id='books'>Books</h1>
+<p><code>Book</code> objects are used for displaying base Minecraft book GUIs with customizable text.</p>
+<h2 id='creation'>Creation</h2>
+<blockquote>
+<p>This is how you create a book</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Book</span><span class="p">(</span><span class="dl">"</span><span class="s2">Example Book</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>We create our book with the Book constructor of <code>new Book(bookName);</code>. We want to create our book in the global scope,
+as explained below.</p>
+<h2 id='adding-content'>Adding content</h2>
+<blockquote>
+<p>This is how you add pages to the book</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Book</span><span class="p">(</span><span class="dl">"</span><span class="s2">Example Book</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">book</span><span class="p">.</span><span class="nx">addPage</span><span class="p">(</span><span class="dl">"</span><span class="s2">This is a very simple page with just text.</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">book</span><span class="p">.</span><span class="nx">addPage</span><span class="p">(</span><span class="k">new</span> <span class="nx">Message</span><span class="p">(</span><span class="dl">"</span><span class="s2">This is a page with a </span><span class="dl">"</span><span class="p">,</span> <span class="k">new</span> <span class="nx">TextComponent</span><span class="p">(</span><span class="dl">"</span><span class="s2">twist!</span><span class="dl">"</span><span class="p">).</span><span class="nx">setHoverValue</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hi! I'm hover text :o</span><span class="dl">"</span><span class="p">)));</span>
+</code></pre></div>
+<p>To add content to our book, we&#39;ll want to utilize the <code>.addPage(message)</code> method. This can take either a simple
+string as the message for the page, or a <code>Message</code> object if you want to utilize the functionality the provide, covered
+<a href="#message-objects">here</a>. This should be done right after the instantiation of the book.</p>
+<h2 id='updating-content'>Updating content</h2>
+<blockquote>
+<p>This is how to update a page&#39;s content</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">book</span><span class="p">.</span><span class="nx">setPage</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">new</span> <span class="nx">Message</span><span class="p">(</span><span class="dl">"</span><span class="s2">lol!</span><span class="dl">"</span><span class="p">));</span>
+</code></pre></div>
+<p>To set a page, we use the <code>.setPage(pageNumber, message)</code>. Page number is the number of the page you wish to update,
+0 based. The message <em>has</em> to be a <code>Message</code> object, there is no method for just a string.</p>
+
+<p>This can be done anytime, just re-display the book to see the updated version. The page you try to set must already exist,
+or else there will be errors. Just add the page if you need to add a new page afterwards.</p>
+<h2 id='displaying'>Displaying</h2>
+<blockquote>
+<p>This is how to display the book to the user</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">book</span><span class="p">.</span><span class="nx">display</span><span class="p">();</span>
+</code></pre></div>
+<blockquote>
+<p>This is how to display the book starting on a certain page</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">book</span><span class="p">.</span><span class="nx">display</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
+<p>This is a very simple operation which just opens the book. You can also specify a page number to open the book to as
+the first argument, it defaults to 0. If the page you specify doesn&#39;t exist, the player will have to click one of the
+arrows to go to the next available page.</p>
+<h1 id='cps'>CPS</h1>
+<blockquote>
+<p>The <code>CPS</code> object gives information about the player&#39;s clicks per second.</p>
+</blockquote>
+<h2 id='clicks-per-second'>Clicks per second</h2>
+<blockquote>
+<p>To get the left clicks per second, use this</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">leftClicks</span> <span class="o">=</span> <span class="nx">CPS</span><span class="p">.</span><span class="nx">getLeftClicks</span><span class="p">();</span>
+</code></pre></div>
+<blockquote>
+<p>To get the right clicks per second, use this</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">rightClicks</span> <span class="o">=</span> <span class="nx">CPS</span><span class="p">.</span><span class="nx">getRightClicks</span><span class="p">();</span>
+</code></pre></div>
+<p>There are more methods for the <code>CPS</code> object, but these are the most common. You can always see a full list
+of up to date documentation on the <a href="https://www.chattriggers.com/javadocs">JavaDocs</a>.</p>
+<h1 id='displays'>Displays</h1>
+<p>Displays are used for rendering simple text on to the players screen. If you would like to utilize other rendering
+functions found in <a href="#rendering">the rendering section</a>, use custom rendering functions.</p>
+<h2 id='creation-2'>Creation</h2>
+<blockquote>
+<p>This is how you can create a <code>Display</code> object</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">display</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Display</span><span class="p">();</span>
+</code></pre></div>
+<p>This <code>Display</code> object is now created, but it doesn&#39;t do much of anything yet.</p>
+<h2 id='adding-content-2'>Adding content</h2>
+<blockquote>
+<p>This is how you add lines to a display</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">display</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Display</span><span class="p">();</span>
+
+<span class="nx">display</span><span class="p">.</span><span class="nx">addLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">Ay! First line.</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">display</span><span class="p">.</span><span class="nx">addLines</span><span class="p">(</span><span class="dl">"</span><span class="s2">2nd line</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">3rd line</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">display</span><span class="p">.</span><span class="nx">addLines</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nx">display</span><span class="p">.</span><span class="nx">addLine</span><span class="p">(</span><span class="k">new</span> <span class="nx">DisplayLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">2 line gap above me!</span><span class="dl">"</span><span class="p">));</span>
+</code></pre></div>
+<p><code>Displays</code> consist of lines of text. These lines can be added and set, and they can use color codes. The first call to
+<code>.addLine(message)</code> adds a line to the display with the text passed in. The second call to <code>.addLines(messages...)</code> adds
+as many lines as you pass into it, in our case just 2. The final call to <code>.addLines(number)</code> adds as many lines as
+you pass in, this is used for setting lines later that you don&#39;t want to say anything yet.</p>
+<h2 id='setting-content'>Setting content</h2>
+<blockquote>
+<p>This is how you set a line in a display</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">display</span><span class="p">.</span><span class="nx">setLine</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Now this line has text :)</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>In this example the call to <code>.setLine(lineNumber, message)</code> sets the 4th line in the display (0 based) which was previously
+blank to our example text. This is what we would use if we want to update a display with information, like the player&#39;s
+current coordinates.</p>
+<h2 id='setting-positioning'>Setting positioning</h2>
+<blockquote>
+<p>This is how you set the alignment of a display</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">display</span><span class="p">.</span><span class="nx">setAlign</span><span class="p">(</span><span class="dl">"</span><span class="s2">left</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>This aligns your display on the left side of the screen. Other options are <code>&quot;center&quot;</code> and <code>&quot;right&quot;</code>.</p>
+
+<blockquote>
+<p>This is how you set the order of the lines</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">display</span><span class="p">.</span><span class="nx">setOrder</span><span class="p">(</span><span class="dl">"</span><span class="s2">down</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>This renders the lines from 0 going downwards, usually what you&#39;d want. The other option is <code>&quot;up&quot;</code>.</p>
+
+<blockquote>
+<p>This is how you set the exact position of the display</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">display</span><span class="p">.</span><span class="nx">setRenderLoc</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</code></pre></div>
+<p>This sets the X and Y coordinate of where your display should start, with the first argument being X, and the second being Y.</p>
+<h2 id='setting-background-and-foreground-options'>Setting background and foreground options</h2>
+<blockquote>
+<p>This sets the background color of the display</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">display</span><span class="p">.</span><span class="nx">setBackgroundColor</span><span class="p">(</span><span class="nx">Renderer</span><span class="p">.</span><span class="nx">AQUA</span><span class="p">);</span>
+</code></pre></div>
+<p>This makes the background color of the display aqua. Other options are all the colors in Renderer, or a custom color
+with <code>Renderer.color(r, g, b, a)</code>.</p>
+
+<blockquote>
+<p>This sets the type of background for the display</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">display</span><span class="p">.</span><span class="nx">setBackground</span><span class="p">(</span><span class="nx">DisplayHandler</span><span class="p">.</span><span class="nx">Background</span><span class="p">.</span><span class="nx">PER_LINE</span><span class="p">);</span>
+</code></pre></div>
+<p>This option sets how the background color should be displayed. <code>PER_LINE</code> says that the background should be the width
+of each line. <code>NONE</code> would mean don&#39;t show background color, and <code>FULL</code> would indicate make the background color draw in
+a box around the entire display.</p>
+
+<blockquote>
+<p>This sets the foreground (text) color of the display</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">display</span><span class="p">.</span><span class="nx">setTextColor</span><span class="p">(</span><span class="nx">Renderer</span><span class="p">.</span><span class="nx">BLUE</span><span class="p">);</span>
+</code></pre></div>
+<p>All text in the display will now show blue. This method can take any Renderer color, including custom ones described above.</p>
+
+<p>DisplayLine can also be used to set the text color, background color, and alignment for a specific line.</p>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">display</span><span class="p">.</span><span class="nx">addLine</span><span class="p">(</span>
+  <span class="k">new</span> <span class="nx">DisplayLine</span><span class="p">(</span><span class="dl">"</span><span class="s2">This will have green text!</span><span class="dl">"</span><span class="p">).</span><span class="nx">setTextColor</span><span class="p">(</span><span class="nx">Renderer</span><span class="p">.</span><span class="nx">GREEN</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>This will set the new line to have green text, overriding the blue we set earlier.</p>
+<h1 id='guis'>Guis</h1>
+<p>Guis are screens that are opened in game, such as the chat gui, or the escape menu. These stop the player from moving.</p>
+<h2 id='creation-3'>Creation</h2>
+<blockquote>
+<p>This is how you create a gui</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">gui</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Gui</span><span class="p">();</span>
+</code></pre></div>
+<p>Like other objects, creating a Gui is very simple.</p>
+<h2 id='rendering-the-gui'>Rendering the gui</h2>
+<blockquote>
+<p>This is how you set up a function to render the gui</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">gui</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Gui</span><span class="p">();</span>
+<span class="nx">gui</span><span class="p">.</span><span class="nx">registerDraw</span><span class="p">(</span><span class="nx">myGuiRenderFunction</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">myGuiRenderFunction</span><span class="p">(</span><span class="nx">mouseX</span><span class="p">,</span> <span class="nx">mouseY</span><span class="p">,</span> <span class="nx">partialTicks</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">Renderer</span><span class="p">.</span><span class="nx">drawRect</span><span class="p">(</span><span class="nx">Renderer</span><span class="p">.</span><span class="nx">WHITE</span><span class="p">,</span> <span class="nx">mouseX</span><span class="p">,</span> <span class="nx">mouseY</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Everything inside of the &quot;myGuiRenderFunction&quot; will be ran while the gui is open. Inside of this function you should
+make use of the <a href="#rendering">Renderer</a> functions to draw what you want on to the screen. The three arguments passed in
+are the x coordinate of the user&#39;s mouse, the y coordinate of the users mouse, and the partial ticks.</p>
+
+<p>In this example, we render a 50x50 square with the top left corner being the user&#39;s mouse position.</p>
+<h2 id='adding-interactivity'>Adding interactivity</h2>
+<blockquote>
+<p>This is how you detect when a user presses a key</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">gui</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Gui</span><span class="p">();</span>
+<span class="nx">gui</span><span class="p">.</span><span class="nx">registerKeyTyped</span><span class="p">(</span><span class="nx">myGuiKeyTypedFunction</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">myGuiKeyTypedFunction</span><span class="p">(</span><span class="nx">typedChar</span><span class="p">,</span> <span class="nx">keyCode</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="dl">"</span><span class="s2">You typed </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">typedChar</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>This is how you detect when the user clicks</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">gui</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Gui</span><span class="p">();</span>
+<span class="nx">gui</span><span class="p">.</span><span class="nx">registerClicked</span><span class="p">(</span><span class="nx">myGuiClickedFunction</span><span class="p">);</span>
+<span class="nx">gui</span><span class="p">.</span><span class="nx">registerDraw</span><span class="p">(</span><span class="nx">myGuiRenderFunction</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">renderSquareX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">renderSquareY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">myGuiRenderFunction</span><span class="p">(</span><span class="nx">mouseX</span><span class="p">,</span> <span class="nx">mouseY</span><span class="p">,</span> <span class="nx">partialTicks</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">Renderer</span><span class="p">.</span><span class="nx">drawRect</span><span class="p">(</span><span class="nx">Renderer</span><span class="p">.</span><span class="nx">WHITE</span><span class="p">,</span> <span class="nx">renderSquareX</span><span class="p">,</span> <span class="nx">renderSquareY</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">myGuiClickedFunction</span><span class="p">(</span><span class="nx">mouseX</span><span class="p">,</span> <span class="nx">mouseY</span><span class="p">,</span> <span class="nx">button</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">renderSquareX</span> <span class="o">=</span> <span class="nx">mouseX</span><span class="p">;</span>
+  <span class="nx">renderSquareY</span> <span class="o">=</span> <span class="nx">mouseY</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>In the first example we register our key typed function to be activated when someone types a key in our Gui. The keyCode
+passed can be compared with the Keyboard class keys.</p>
+
+<p>In the next example we make things more complicated. We register both a draw function and a mouse clicked function.
+We render the same box as in the previous draw example, however, we make the coordinates of it be the last place the
+mouse was clicked.</p>
+<h2 id='displaying-the-gui'>Displaying the gui</h2>
+<blockquote>
+<p>To display the gui, use this</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">gui</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
+</code></pre></div>
+<blockquote>
+<p>To close the gui, use this</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">gui</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+</code></pre></div>
+<p>These very simple methods open and close the gui, and neither take any arguments.</p>
+<h1 id='inventory'>Inventory</h1>
+<p>The Inventory object contains methods used for getting information about the user&#39;s inventory. It can be called
+through <code>Player.getInventory()</code>. More about the <code>Player</code> class can be found <a href="#player">later</a>.</p>
+<h2 id='example'>Example</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">function</span> <span class="nx">hasSponge</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">inventory</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getInventory</span><span class="p">();</span>
+
+  <span class="c1">// The ID for sponge is 19.</span>
+  <span class="kd">var</span> <span class="nx">spongeSlot</span> <span class="o">=</span> <span class="nx">inventory</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="mi">19</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">spongeSlot</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="dl">"</span><span class="s2">Sponge found in slot </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">spongeSlot</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">!</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="dl">"</span><span class="s2">Sponge not found!</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The example above lets us see if the inventory has a sponge item in it, and if so, say the slot it&#39;s in.
+This works by first getting the inventory of the player, then it gets the slot ID of sponge, if there is any.
+If any slot has a sponge, it will output the slot, otherwise it will return -1.</p>
+<h1 id='keybinds'>KeyBinds</h1>
+<p>KeyBinds are used for detecting the state of a key.</p>
+
+<aside class="notice">These aren't meant to be used for Guis, it's preferable to register a keytyped method for detecting
+if a player pressed a key inside your Gui</aside>
+<h2 id='creation-4'>Creation</h2>
+<blockquote>
+<p>This is the preferred method to get a keybind</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">wKeyBind</span> <span class="o">=</span> <span class="nx">getKeyBindFromKey</span><span class="p">(</span><span class="nx">Keyboard</span><span class="p">.</span><span class="nx">KEY_W</span><span class="p">,</span> <span class="dl">"</span><span class="s2">My W Key</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">getKeyBindFromKey</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">description</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">mcKeyBind</span> <span class="o">=</span> <span class="nx">Client</span><span class="p">.</span><span class="nx">getKeyBindFromKey</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">mcKeyBind</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">mcKeyBind</span> <span class="o">==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">mcKeyBind</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">KeyBind</span><span class="p">(</span><span class="nx">description</span><span class="p">,</span> <span class="nx">key</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">mcKeyBind</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Let&#39;s break this down. First, we call the function &quot;getKeyBindFromKey&quot; and save the result in a variable. This result
+is our finished KeyBind. We pass into this function a keyCode, from the <a href="http://legacy.lwjgl.org/javadoc/org/lwjgl/input/Keyboard.html">Keyboard</a> class.</p>
+
+<p>Next, we have our function. First, it tries to get the Keybind for our specified key from Client. We do this
+because if we want a keybind Minecraft already uses, we don&#39;t want to override it. However, if Minecraft isn&#39;t using
+that key (because the function returned null), we need to make our own, with the description and key we specified.</p>
+
+<p>In our case, this will return the keybind already used by minecraft for the run key (unless of course you changed yours
+to a different key).</p>
+<h2 id='using-the-keybind'>Using the keybind</h2>
+<blockquote>
+<p>To check if they key bind is being held, do this</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="k">if</span> <span class="p">(</span><span class="nx">wKeyBind</span><span class="p">.</span><span class="nx">isKeyDown</span><span class="p">())</span> <span class="p">{</span>
+  <span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="dl">"</span><span class="s2">Key is down!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>To check if the key bind was pressed, use this</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="k">if</span> <span class="p">(</span><span class="nx">wKeyBind</span><span class="p">.</span><span class="nx">isPressed</span><span class="p">())</span> <span class="p">{</span>
+  <span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="dl">"</span><span class="s2">Key is pressed!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This first example would spam your chat if it was in an Tick trigger or something of the like, as it will always be true
+if you are holding down the key.</p>
+
+<p>Now, in the second example, we would only get the chat message once every time we press and hold the key. It only
+returns true one time per key press. If you let go and press again, it will return true once more.</p>
+<h1 id='player'>Player</h1>
+<p>The <code>Player</code> object contains many methods used for retrieving information about the player.</p>
+<h2 id='location'>Location</h2>
+<blockquote>
+<p>To get the direction the player is facing, use this</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">direction</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">facing</span><span class="p">();</span>
+</code></pre></div>
+<blockquote>
+<p>To get the coordinates of the player, you can use this</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">playerX</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getX</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">playerY</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getY</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">playerZ</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getZ</span><span class="p">();</span>
+</code></pre></div>
+<p>Using this in conjunction with displays, you can make a coordinates HUD.</p>
+<div class="highlight"><pre class="highlight javascript"><code><span class="nx">register</span><span class="p">(</span><span class="dl">"</span><span class="s2">tick</span><span class="dl">"</span><span class="p">,</span> <span class="nx">locationTracker</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">display</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Display</span><span class="p">();</span>
+<span class="nx">display</span><span class="p">.</span><span class="nx">setRenderLoc</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">locationTracker</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">display</span><span class="p">.</span><span class="nx">setLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="dl">"</span><span class="s2">X: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getX</span><span class="p">());</span>
+  <span class="nx">display</span><span class="p">.</span><span class="nx">setLine</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Y: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getY</span><span class="p">());</span>
+  <span class="nx">display</span><span class="p">.</span><span class="nx">setLine</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Z: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getZ</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>In this case, we just made a display, and every tick it updates to show the player&#39;s location.</p>
+<h2 id='lookingat'>LookingAt</h2>
+<blockquote>
+<p>The <code>LookingAt</code> object was replaced with the <code>Player.lookingAt()</code> method.</p>
+</blockquote>
+
+<p>This gets the current object that the player is looking at, whether that be a block or an entity. It returns
+either the <code>Block</code>, <code>Sign</code>, <code>Entity</code> class, or an air block when not looking at anything.</p>
+<h2 id='health'>Health</h2>
+<blockquote>
+<p>You can not only get the player&#39;s health, hunger, active potion effects, but much more! Here&#39;s just a few
+examples of how to get each part.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">health</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getHP</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">hunger</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getHunger</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">potions</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getActivePotionEffects</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">xpLevel</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getXPLevel</span><span class="p">();</span>
+</code></pre></div><h2 id='armor'>Armor</h2>
+<blockquote>
+<p>To get the player&#39;s armor, you can use <code>Player.armor</code></p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">helmet</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">armor</span><span class="p">.</span><span class="nx">getHelmet</span><span class="p">();</span>
+</code></pre></div>
+<p>This would return the item that is in the helmet slot of the player. This can be a pumpkin or any item
+that is on the helmet slot.</p>
+<h2 id='getting-inventory-information'>Getting Inventory information</h2>
+<blockquote>
+<p>Here&#39;s an example showing how to find the durability and stack size of the item the player is holding.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">function</span> <span class="nx">displayHeldItemInfo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">Player</span><span class="p">.</span><span class="nx">getHeldItem</span><span class="p">();</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">getName</span><span class="p">()</span> <span class="o">!==</span> <span class="dl">"</span><span class="s2">tile.air.name</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">durabilityPercentage</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span>
+      <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">getDurability</span><span class="p">()</span> <span class="o">/</span> <span class="nx">item</span><span class="p">.</span><span class="nx">getMaxDamage</span><span class="p">())</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="p">);</span>
+
+    <span class="c1">// If NaN, that means it's a block</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">durabilityPercentage</span><span class="p">))</span> <span class="nx">durabilityPercentage</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">N/A (not a tool!)</span><span class="dl">"</span><span class="p">;</span>
+
+    <span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="dl">"</span><span class="s2">Item: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">item</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span>
+    <span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="dl">"</span><span class="s2">Durability: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">durabilityPercentage</span><span class="p">);</span>
+    <span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="dl">"</span><span class="s2">Stack Size: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">item</span><span class="p">.</span><span class="nx">getStackSize</span><span class="p">());</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">ChatLib</span><span class="p">.</span><span class="nx">chat</span><span class="p">(</span><span class="dl">"</span><span class="s2">&amp;4You aren't holding anything!</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>In this case, we get the held item of the player. If the item isn&#39;t air, then it finds how damaged it is. If
+the durability isn&#39;t a number, that means the item has to be a block. Then, if the player isn&#39;t holding anything, it
+runs the last piece of the code, which is when the hand is empty.
+If you want to get the player&#39;s inventory as a list of <code>Items</code>, use <code>Player.getInventory()</code>.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

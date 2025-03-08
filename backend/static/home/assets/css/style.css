@@ -1,0 +1,226 @@
+html, body {
+  height: 100%
+}
+
+h3 {
+	margin-bottom: -5px;
+}
+
+.dl-all {
+	box-shadow: 0px 0px 5px 0px #000000;
+	margin: 20px;
+}
+
+.dl-bg {
+	font-size: 24px;
+}
+
+.dl-sm {
+	font-size: 20px;
+}
+
+.dlimg-sm {
+	width: 64px;
+	height: 64px;
+	margin: auto;
+}
+
+.dlimg-bg {
+	width: 128px;
+	height: 128px;
+	margin: auto;
+}
+
+.dl-box {
+	cursor: pointer;
+	color: dark-gray;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	background-color: rgba(0, 0, 0, 0.05);
+	transition: all .2s;
+}
+
+.dl-box-disabled {
+	cursor: not-allowed;
+	color: black;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	background-color: rgba(255, 0, 0, 0.3);
+}
+
+.dl-box:hover {
+	color: black;
+	background-color: rgba(0, 0, 0, 0.3);
+	transition: all .2s;
+}
+
+#navigation {
+  font-size: 25px;
+  color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  z-index: 1000;
+  background: url("https://www.chattriggers.com/assets/images/navbar.png");
+  background-repeat: repeat;
+  background-size: 300px;
+  position: fixed;
+  width: 100%;
+}
+
+.nav-link {
+  display: inline;
+}
+
+#title-image {
+  z-index: 1001;
+  width: 50%;
+  height: auto;
+  position: fixed;
+  cursor: pointer;
+}
+
+.title-buttons {
+  margin-top: 100px;
+}
+
+.landing {
+  padding-top: 250px;
+  text-align: center;
+  height: 100%;
+  min-height: auto;
+  background-color: #cef6ff;
+  background-image: url("../images/bg.jpg");
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.btn {
+  background: none;
+  color: black;
+  font-size: 18pt;
+  border-radius: 100px;
+  margin: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 13px;
+  padding-bottom: 15px;
+}
+
+#get-started, #download, #links {
+  min-height: 100%;
+  text-align: center;
+  color: #4f4f4f;
+  padding: 150px;
+  box-shadow: 0px 0px 20px 0px #000000;
+}
+
+#get-started, #links {
+  background-color: #ededed;
+}
+
+#download {
+  background: url("../images/download-background.png");
+  background-size: auto 100%;
+}
+
+.download-box {
+  padding: 20px;
+  padding-right: 100px;
+  padding-left: 100px;
+  background: white;
+  box-shadow: 0px 0px 20px 0px #000000;
+}
+
+#footer {
+  background-color: #000000;
+  color: white;
+  padding-top: 100px;
+  background: url("https://www.chattriggers.com/assets/images/navbar.png");
+  background-repeat: repeat;
+  background-size: 300px;
+  box-shadow: 0px 0px 20px 0px #000000;
+}
+
+h3 {
+  color: black;
+}
+
+.start-box {
+  background: #ededed;
+  padding-bottom: 20px;
+  transition: all .2s;
+}
+
+.start-box:hover {
+  background: #d6d6d6;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.start-text {
+  color: #232323;
+  padding-bottom: 50px;
+}
+
+.icon {
+  margin-top: 50px;
+  width: 160px;
+  height: 160px;
+}
+
+.footer-image {
+  width: 25%;
+  height: auto;
+  float: left;
+  margin-right: 10px;
+}
+
+.head {
+  box-shadow: 0px 0px 20px 0px #000000;
+}
+
+#bottom-footer {
+  padding-top: 100px;
+  padding-bottom: 30px;
+}
+
+#download-image {
+  position: fixed;
+  margin: auto;
+  margin-left: -350px;
+  margin-top: 25%;
+  z-index: 998;
+  transition: margin-left 0.5s;
+}
+
+#kerbybit-image {
+  box-shadow: 0px 0px 20px 0px #000000;
+}
+
+#download-image.active {
+  margin-left: -100px;
+}
+
+#patreon {
+  cursor: pointer;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #000;
+}
+.separator::before {
+    margin-right: .25em;
+}
+.separator::after {
+    margin-left: .25em;
+}

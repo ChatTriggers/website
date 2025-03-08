@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>BossBar</title>
+    <link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+<link href="../../../../styles/multimodule.css" rel="Stylesheet">
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../../index.html">
+                    <span>ctjs</span>
+            </a>
+    </div>
+    <div>
+<dokka-template-command data="{&quot;@class&quot;:&quot;org.jetbrains.dokka.base.templating.ReplaceVersionsCommand&quot;,&quot;location&quot;:&quot;ctjs/com.chattriggers.ctjs.api.world/-boss-bars/-boss-bar/index.html&quot;}"><div class="versions-dropdown">
+  <div class="versions-dropdown-button">3.0.0-beta</div>
+  <div class="versions-dropdown-data"><a href="index.html">3.0.0-beta</a><a href="../../../../not-found-version.html?v=2.2.0-1.8.9">2.2.0-1.8.9</a></div>
+</div>
+</dokka-template-command>    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":1.20.4-fabric:dokkaHtml/main">jvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="ctjs::com.chattriggers.ctjs.api.world/BossBars.BossBar///PointingToDeclaration//2012257574">
+  <div class="breadcrumbs"><a href="../../../../index.html">ctjs</a><span class="delimiter">/</span><a href="../../index.html">com.chattriggers.ctjs.api.world</a><span class="delimiter">/</span><a href="../index.html">BossBars</a><span class="delimiter">/</span><span class="current">BossBar</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Boss</span><wbr></wbr><span><span>Bar</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">BossBar</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>mcValue<span class="token operator">: </span><a href="https://maven.fabricmc.net/docs/yarn-1.20.4+build.3/net/minecraft/client/gui/hud/ClientBossBar.html">ClientBossBar</a></span></span><span class="token punctuation">)</span> : <a href="../../../com.chattriggers.ctjs.api/-c-t-wrapper/index.html">CTWrapper</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://maven.fabricmc.net/docs/yarn-1.20.4+build.3/net/minecraft/client/gui/hud/ClientBossBar.html">ClientBossBar</a><span class="token operator">&gt; </span></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="1286775370%2FConstructors%2F2012257574" anchor-label="BossBar" id="1286775370%2FConstructors%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-boss-bar.html"><span>Boss</span><wbr></wbr><span><span>Bar</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1286775370%2FConstructors%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mcValue<span class="token operator">: </span><a href="https://maven.fabricmc.net/docs/yarn-1.20.4+build.3/net/minecraft/client/gui/hud/ClientBossBar.html">ClientBossBar</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="981235573%2FProperties%2F2012257574" anchor-label="mcValue" id="981235573%2FProperties%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="mc-value.html"><span>mc</span><wbr></wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="981235573%2FProperties%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">val </span><a href="mc-value.html">mcValue</a><span class="token operator">: </span><a href="https://maven.fabricmc.net/docs/yarn-1.20.4+build.3/net/minecraft/client/gui/hud/ClientBossBar.html">ClientBossBar</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="783470653%2FFunctions%2F2012257574" anchor-label="getColor" id="783470653%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-color.html"><span>get</span><wbr></wbr><span><span>Color</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="783470653%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-color.html"><span class="token function">getColor</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-color/index.html">BossBars.Color</a></div><div class="brief "><p class="paragraph">Gets the <a href="../-color/index.html">Color</a> of this BossBar</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="318167215%2FFunctions%2F2012257574" anchor-label="getName" id="318167215%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-name.html"><span>get</span><wbr></wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="318167215%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-name.html"><span class="token function">getName</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">Gets the name of this BossBar</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-822875941%2FFunctions%2F2012257574" anchor-label="getPercent" id="-822875941%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-percent.html"><span>get</span><wbr></wbr><span><span>Percent</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-822875941%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-percent.html"><span class="token function">getPercent</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a></div><div class="brief "><p class="paragraph">Gets how full this BossBar is</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2125329839%2FFunctions%2F2012257574" anchor-label="getStyle" id="2125329839%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-style.html"><span>get</span><wbr></wbr><span><span>Style</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2125329839%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-style.html"><span class="token function">getStyle</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-style/index.html">BossBars.Style</a></div><div class="brief "><p class="paragraph">Gets the style of this BossBar. e.g. how many notches are displayed</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1645236833%2FFunctions%2F2012257574" anchor-label="getUUID" id="-1645236833%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-u-u-i-d.html"><span>get</span><wbr></wbr><span><span>UUID</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1645236833%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-u-u-i-d.html"><span class="token function">getUUID</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html">UUID</a></div><div class="brief "><p class="paragraph">Gets the UUID of this BossBar</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="227932594%2FFunctions%2F2012257574" anchor-label="hasDragonMusic" id="227932594%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-dragon-music.html"><span>has</span><wbr></wbr><span>Dragon</span><wbr></wbr><span><span>Music</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="227932594%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-dragon-music.html"><span class="token function">hasDragonMusic</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Gets whether this BossBar will play dragon music. This will do nothing when the player is not in the end dimension</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1620982774%2FFunctions%2F2012257574" anchor-label="setColor" id="-1620982774%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-color.html"><span>set</span><wbr></wbr><span><span>Color</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1620982774%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-color.html"><span class="token function">setColor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">color<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">BossBars.BossBar</a></div><div class="brief "><p class="paragraph">Sets the <a href="../-color/index.html">Color</a> of this BossBar</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1845558523%2FFunctions%2F2012257574" anchor-label="setHasDragonMusic" id="1845558523%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-has-dragon-music.html"><span>set</span><wbr></wbr><span>Has</span><wbr></wbr><span>Dragon</span><wbr></wbr><span><span>Music</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1845558523%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-has-dragon-music.html"><span class="token function">setHasDragonMusic</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">music<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">BossBars.BossBar</a></div><div class="brief "><p class="paragraph">Sets whether this BossBar will play dragon music</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1277831873%2FFunctions%2F2012257574" anchor-label="setName" id="1277831873%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-name.html"><span>set</span><wbr></wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1277831873%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-name.html"><span class="token function">setName</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">BossBars.BossBar</a></div><div class="brief "><p class="paragraph">Sets the name of this BossBar</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-280878856%2FFunctions%2F2012257574" anchor-label="setPercent" id="-280878856%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-percent.html"><span>set</span><wbr></wbr><span><span>Percent</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-280878856%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-percent.html"><span class="token function">setPercent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">percent<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">BossBars.BossBar</a></div><div class="brief "><p class="paragraph">Sets how full this BossBar is</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1172027746%2FFunctions%2F2012257574" anchor-label="setShouldDarkenSky" id="1172027746%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-should-darken-sky.html"><span>set</span><wbr></wbr><span>Should</span><wbr></wbr><span>Darken</span><wbr></wbr><span><span>Sky</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1172027746%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-should-darken-sky.html"><span class="token function">setShouldDarkenSky</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">darken<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">BossBars.BossBar</a></div><div class="brief "><p class="paragraph">Sets whether this BossBar should darken the sky</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-74137016%2FFunctions%2F2012257574" anchor-label="setShouldThickenFog" id="-74137016%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-should-thicken-fog.html"><span>set</span><wbr></wbr><span>Should</span><wbr></wbr><span>Thicken</span><wbr></wbr><span><span>Fog</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-74137016%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-should-thicken-fog.html"><span class="token function">setShouldThickenFog</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">fog<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">BossBars.BossBar</a></div><div class="brief "><p class="paragraph">Sets whether this BossBar should thicken the fog around the player</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-850771204%2FFunctions%2F2012257574" anchor-label="setStyle" id="-850771204%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-style.html"><span>set</span><wbr></wbr><span><span>Style</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-850771204%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-style.html"><span class="token function">setStyle</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">style<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">BossBars.BossBar</a></div><div class="brief "><p class="paragraph">Sets the style of this BossBar</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1712555295%2FFunctions%2F2012257574" anchor-label="shouldDarkenSky" id="-1712555295%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="should-darken-sky.html"><span>should</span><wbr></wbr><span>Darken</span><wbr></wbr><span><span>Sky</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1712555295%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="should-darken-sky.html"><span class="token function">shouldDarkenSky</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Gets whether this BossBar darkens the sky</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="495971007%2FFunctions%2F2012257574" anchor-label="shouldThickenFog" id="495971007%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="should-thicken-fog.html"><span>should</span><wbr></wbr><span>Thicken</span><wbr></wbr><span><span>Fog</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="495971007%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="should-thicken-fog.html"><span class="token function">shouldThickenFog</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Gets whether this BossBar should thicken the fog around the player</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1352017826%2FFunctions%2F2012257574" anchor-label="toString" id="-1352017826%2FFunctions%2F2012257574" data-filterable-set=":1.20.4-fabric:dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":1.20.4-fabric:dokkaHtml/main" data-filterable-set=":1.20.4-fabric:dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-string.html"><span>to</span><wbr></wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1352017826%2FFunctions%2F2012257574"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.20.4-fabric:dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="to-string.html"><span class="token function">toString</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
