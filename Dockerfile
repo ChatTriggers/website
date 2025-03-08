@@ -7,22 +7,22 @@ COPY ./frontend ./
 RUN yarn
 RUN yarn build
 
-RUN mkdir -p /app/static/frontend
-RUN mv build/* /app/static/frontend
-
 FROM gradle:8.13-jdk17 AS backend-build
 
 WORKDIR /build/backend
 
-COPY ./frontend ./
+COPY ./backend ./
 
 RUN ./gradlew uberJar
-
-RUN cp build/libs/*.jar /app
 
 FROM eclipse-temurin:17-jdk-alpine
 
 WORKDIR /app
+
+RUN mkdir -p static/frontend
+COPY --from=frontend-build /build/frontend/build/* static/frontend/
+
+COPY --from=backend-build /build/backend/build/libs/*.jar ./
 
 EXPOSE 8080
 
