@@ -4,7 +4,7 @@ WORKDIR /build/frontend
 
 COPY ./frontend ./
 
-RUN yarn --ignore-engines
+RUN yarn
 RUN yarn build
 
 FROM gradle:8.13-jdk17 AS backend-build

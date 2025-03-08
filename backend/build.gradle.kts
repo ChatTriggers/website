@@ -20,7 +20,7 @@ dependencies {
     implementation("io.javalin:javalin:4.5.0")
     implementation("com.zaxxer:HikariCP:5.0.1")
     implementation("io.insert-koin:koin-core:3.1.6")
-    implementation("mysql:mysql-connector-java:8.0.27")
+    implementation("org.postgresql:postgresql:42.7.2")
     implementation("org.slf4j:slf4j-simple:1.7.36")
     implementation("org.jetbrains.exposed:exposed:0.17.14")
     implementation("org.mindrot:jbcrypt:0.4")
