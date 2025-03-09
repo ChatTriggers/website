@@ -24,7 +24,7 @@ COPY --from=frontend-build /build/frontend/build/* static/frontend/
 
 COPY --from=backend-build /build/backend/build/libs/*.jar ./
 COPY --from=backend-build /build/backend/static/home/* static/home/
-COPY --from=backend-build *.txt ./
+COPY --from=backend-build /build/backend/*.txt ./
 
 EXPOSE 8080
 
