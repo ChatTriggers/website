@@ -7,8 +7,8 @@ import org.jetbrains.exposed.dao.IntEntityClass
 import org.jetbrains.exposed.dao.IntIdTable
 
 object Users : IntIdTable() {
-    val name = varchar("name", length = 191)
-    val email = varchar("email", length = 191)
+    val name = citext("name")
+    val email = citext("email")
     val password = varchar("password", length = 191)
     val rank = enumerationByName("rank", 10, Auth.Role::class)
     val createdAt = datetime("created_at")

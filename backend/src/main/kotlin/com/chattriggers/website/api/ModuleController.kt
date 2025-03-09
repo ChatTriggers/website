@@ -160,7 +160,7 @@ class ModuleController : CrudHandler {
             Integer.parseInt(resourceId)
             getModuleOrFail(resourceId, user, access)
         } catch (e: NumberFormatException) {
-            Module.find { Modules.name.lowerCase() eq resourceId }
+            Module.find { Modules.name eq resourceId }
                 .firstOrNull() ?: throw BadRequestResponse("No module with specified resourceId")
         }
 
