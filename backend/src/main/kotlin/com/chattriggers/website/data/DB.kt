@@ -13,6 +13,8 @@ object DB : KoinComponent {
         it.jdbcUrl = dbConfig.jdbcUrl
         it.username = dbConfig.username
         it.password = dbConfig.password
+        it.driverClassName = "org.postgresql.Driver"
+        it.dataSourceClassName = "org.postgresql.ds.PGSimpleDataSource"
     }
 
     fun setupDB() {
