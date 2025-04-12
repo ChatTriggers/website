@@ -1,12 +1,15 @@
-Utility
-Library
-Singleplayer
-Multiplayer
-GUI
-HUD
-Audio
-API
 1.8
 1.12
-Proof of Concept
+1.19
+API
+ASM
+Audio
+GUI
+HUD
 Hypixel
+Library
+Multiplayer
+Proof of Concept
+Singleplayer
+Skyblock
+Utility
