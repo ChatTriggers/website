@@ -56,10 +56,10 @@ object Webhook : KoinComponent {
         }
     }
 
-    fun onReleaseCreated(module: PublicModule, release: PublicRelease) {
-        if (module.releases.size == 1) {
+    fun onReleaseCreated(module: Module, release: PublicRelease) {
+        if (module.releases.count { it.verified } == 1) {
             // The module created message is not sent until it has at least one release
-            onModuleCreated(module)
+            onModuleCreated(module.public())
         }
 
         sendMessage {

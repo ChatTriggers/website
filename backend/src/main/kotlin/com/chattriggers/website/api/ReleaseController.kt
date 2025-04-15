@@ -98,7 +98,7 @@ class ReleaseController : CrudHandler, KoinComponent {
         ctx.status(201).json(release.authorized())
 
         if (!module.hidden && release.verified)
-            Webhook.onReleaseCreated(module.public(), release.public())
+            Webhook.onReleaseCreated(module, release.public())
 
         if (!release.verified) {
             var verificationUrl = "https://chattriggers.com/modules/verify/${module.name}?token=$verificationToken&" +
@@ -304,7 +304,7 @@ class ReleaseController : CrudHandler, KoinComponent {
         }
 
         if (!module.hidden)
-            Webhook.onReleaseCreated(module.public(), release.public())
+            Webhook.onReleaseCreated(module, release.public())
 
         ctx.status(200)
     }
