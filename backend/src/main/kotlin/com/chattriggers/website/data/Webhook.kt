@@ -16,9 +16,15 @@ import java.time.Instant
 object Webhook : KoinComponent {
     private val discordConfig = get<DiscordConfig>()
     private lateinit var client: WebhookClient
+    private lateinit var alertClient: WebhookClient
 
     fun setupWebhook() {
         client = WebhookClientBuilder(discordConfig.modulesWebhook).apply {
+            setDaemon(true)
+            setAllowedMentions(AllowedMentions.none())
+        }.build()
+
+        alertClient = WebhookClientBuilder(discordConfig.alertsWebhook).apply {
             setDaemon(true)
             setAllowedMentions(AllowedMentions.none())
         }.build()
@@ -83,11 +89,18 @@ object Webhook : KoinComponent {
         }
     }
 
+    fun sendAlert(title: String, message: String) {
+        sendMessage(alertClient, color = 0xe9d502) {
+            setTitle(WebhookEmbed.EmbedTitle(title, null))
+            setDescription(message)
+        }
+    }
+
     private fun String.decode() = URLDecoder.decode(replace("\\n", "\n"), Charset.defaultCharset())
 
-    private fun sendMessage(builder: WebhookEmbedBuilder.() -> Unit) {
+    private fun sendMessage(client: WebhookClient = this.client, color: Int = 0x7b2fb5, builder: WebhookEmbedBuilder.() -> Unit) {
         val embed = WebhookEmbedBuilder().apply {
-            setColor(0x7b2fb5)
+            setColor(color)
             setTimestamp(Instant.now())
 
             this.builder()

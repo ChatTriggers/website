@@ -6,6 +6,7 @@ import club.minnced.discord.webhook.send.WebhookEmbedBuilder
 import com.chattriggers.website.Auth
 import com.chattriggers.website.config.DiscordConfig
 import com.chattriggers.website.data.*
+import com.chattriggers.website.data.Releases.module
 import io.javalin.apibuilder.CrudHandler
 import io.javalin.core.util.Header
 import io.javalin.http.*
@@ -100,7 +101,9 @@ class ReleaseController : CrudHandler, KoinComponent {
         if (!module.hidden && release.verified)
             Webhook.onReleaseCreated(module, release.public())
 
-        if (!release.verified) {
+        if (release.verified) {
+            invalidateReleases(module)
+        } else {
             var verificationUrl = "https://chattriggers.com/modules/verify/${module.name}?token=$verificationToken&" +
                 "newReleaseId=${release.id}"
 
@@ -306,6 +309,7 @@ class ReleaseController : CrudHandler, KoinComponent {
         if (!module.hidden)
             Webhook.onReleaseCreated(module, release.public())
 
+        invalidateReleases(module)
         ctx.status(200)
     }
 
@@ -353,6 +357,7 @@ class ReleaseController : CrudHandler, KoinComponent {
 
         File("storage/${release.module.name.lowercase()}/${release.id.value}").deleteRecursively()
         release.delete()
+        invalidateReleases(release.module)
     }
 
     companion object {
